@@ -9,9 +9,9 @@ import (
 	"io"
 )
 
-/**
- * Model for initing client
- */
+// Description:
+//
+// Model for initing client
 type Config struct {
 	// accesskey id
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
@@ -20,26 +20,66 @@ type Config struct {
 	// security token
 	SecurityToken *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
 	// http protocol
+	//
+	// example:
+	//
+	// http
 	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
 	// read timeout
+	//
+	// example:
+	//
+	// 10
 	ReadTimeout *int `json:"readTimeout,omitempty" xml:"readTimeout,omitempty"`
 	// connect timeout
+	//
+	// example:
+	//
+	// 10
 	ConnectTimeout *int `json:"connectTimeout,omitempty" xml:"connectTimeout,omitempty"`
 	// http proxy
+	//
+	// example:
+	//
+	// http://localhost
 	HttpProxy *string `json:"httpProxy,omitempty" xml:"httpProxy,omitempty"`
 	// https proxy
+	//
+	// example:
+	//
+	// https://localhost
 	HttpsProxy *string `json:"httpsProxy,omitempty" xml:"httpsProxy,omitempty"`
 	// endpoint
+	//
+	// example:
+	//
+	// cs.aliyuncs.com
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 	// proxy white list
+	//
+	// example:
+	//
+	// http://localhost
 	NoProxy *string `json:"noProxy,omitempty" xml:"noProxy,omitempty"`
 	// max idle conns
+	//
+	// example:
+	//
+	// 3
 	MaxIdleConns *int `json:"maxIdleConns,omitempty" xml:"maxIdleConns,omitempty"`
 	// user agent
+	//
+	// example:
+	//
+	// Alibabacloud/1
 	UserAgent *string `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
 	// socks5 proxy
 	Socks5Proxy *string `json:"socks5Proxy,omitempty" xml:"socks5Proxy,omitempty"`
 	// socks5 network
+	//
+	// example:
+	//
+	// TCP
 	Socks5NetWork *string `json:"socks5NetWork,omitempty" xml:"socks5NetWork,omitempty"`
 	// 长链接最大空闲时长
 	MaxIdleTimeMillis *int `json:"maxIdleTimeMillis,omitempty" xml:"maxIdleTimeMillis,omitempty"`
@@ -152,12 +192,24 @@ func (s *Config) SetMaxRequestsPerHost(v int) *Config {
 // 卡证OCR图片坐标
 type OcrLocation struct {
 	// 表示定位位置的长方形左上顶点的垂直坐标
+	// example:
+	//
+	// 0
 	Top *string `json:"top,omitempty" xml:"top,omitempty"`
 	// 表示定位位置的长方形左上顶点的水平坐标
+	// example:
+	//
+	// 0
 	Left *string `json:"left,omitempty" xml:"left,omitempty"`
 	// 表示定位位置的长方形的宽度
+	// example:
+	//
+	// 100
 	Width *string `json:"width,omitempty" xml:"width,omitempty"`
 	// 表示定位位置的长方形的高度
+	// example:
+	//
+	// 100
 	Height *string `json:"height,omitempty" xml:"height,omitempty"`
 }
 
@@ -194,18 +246,36 @@ type CardQuality struct {
 	// 1-清晰
 	// 0-不清晰
 	//
+	// example:
+	//
+	// 1
 	IsClear *string `json:"is_clear,omitempty" xml:"is_clear,omitempty"`
 	// 清晰度取值0-1，值越大表示图像质量越好，默认阈值0.5
+	// example:
+	//
+	// 1
 	IsClearPropobility *string `json:"is_clear_propobility,omitempty" xml:"is_clear_propobility,omitempty"`
 	// 1-边框/四角完整
 	// 0-边框/四角不完整
+	// example:
+	//
+	// 1
 	IsComplete *string `json:"is_complete,omitempty" xml:"is_complete,omitempty"`
 	// 取值0-1，值越大表示图像质量越好，默认阈值0.5
+	// example:
+	//
+	// 1
 	IsCompletePropobility *string `json:"is_complete_propobility,omitempty" xml:"is_complete_propobility,omitempty"`
 	// 1-头像、关键字段无遮挡/马赛克
 	// 0-头像、关键字段有遮挡/马赛克
+	// example:
+	//
+	// 1
 	IsNoCover *string `json:"is_no_cover,omitempty" xml:"is_no_cover,omitempty"`
 	// 有无遮挡propobility-取值0-1，值越大表示图像质量越好，默认阈值0.3
+	// example:
+	//
+	// 1
 	IsNoCoverPropobility *string `json:"is_no_cover_propobility,omitempty" xml:"is_no_cover_propobility,omitempty"`
 }
 
@@ -250,12 +320,24 @@ func (s *CardQuality) SetIsNoCoverPropobility(v string) *CardQuality {
 // 音频元数据
 type AudioMeta struct {
 	// 采样率
+	// example:
+	//
+	// 16000
 	SampleFreq *int64 `json:"sample_freq,omitempty" xml:"sample_freq,omitempty"`
 	// 音频道数
+	// example:
+	//
+	// 1
 	ChannelsNum *int64 `json:"channels_num,omitempty" xml:"channels_num,omitempty"`
 	// 音频数据采样点所占位数
+	// example:
+	//
+	// 16
 	Bits *int64 `json:"bits,omitempty" xml:"bits,omitempty"`
 	// 语音信道分离标识
+	// example:
+	//
+	// 0
 	Channel *int64 `json:"channel,omitempty" xml:"channel,omitempty"`
 }
 
@@ -290,10 +372,19 @@ func (s *AudioMeta) SetChannel(v int64) *AudioMeta {
 // 音频文件
 type Audio struct {
 	// 音频文件名称（单次请求保持唯一）
+	// example:
+	//
+	// 81995a7fa2bfc132eb69cdc2028f0619.wav
 	Token *string `json:"token,omitempty" xml:"token,omitempty"`
 	// 待认证的音频文件，base64编码格式
+	// example:
+	//
+	// /9j/238sn382l23f4
 	RawData *string `json:"raw_data,omitempty" xml:"raw_data,omitempty"`
 	// 音频文件OSS地址
+	// example:
+	//
+	// https://xxxxxx.oss-cn-shanghai.aliyuncs.com/12345.wav
 	AudioUrl *string `json:"audio_url,omitempty" xml:"audio_url,omitempty"`
 }
 
@@ -323,16 +414,34 @@ func (s *Audio) SetAudioUrl(v string) *Audio {
 // 银行卡代扣二级租户收支明细
 type TransactionDetail struct {
 	// 交易类型：RECHARGE 入金，TRANSFER 划拨 ，WITHDRAW 出金
+	// example:
+	//
+	// RECHARGE
 	TransType *string `json:"trans_type,omitempty" xml:"trans_type,omitempty"`
 	// 余额方向：CR-贷款（收入）/ DR-借款（支出）
+	// example:
+	//
+	// CR
 	Direction *string `json:"direction,omitempty" xml:"direction,omitempty"`
 	// 币种 CNY人民币
+	// example:
+	//
+	// CNY
 	Ccy *string `json:"ccy,omitempty" xml:"ccy,omitempty"`
 	// 交易金额，单位：元，整数部分最长10位数，保留两位小数
+	// example:
+	//
+	// 1.11
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 	// 交易后余额，单位：元，整数部分最长10位数，保留两位小数
+	// example:
+	//
+	// 2.22
 	AfterAmount *string `json:"after_amount,omitempty" xml:"after_amount,omitempty"`
 	// 创建时间，格式为：yyyy-MM-dd HH:mm:ss
+	// example:
+	//
+	// 2026-01-15 09:10:11
 	CreatTime *string `json:"creat_time,omitempty" xml:"creat_time,omitempty"`
 	// SHARE-分账
 	// OFFSET_SHARE-差额分账
@@ -342,6 +451,9 @@ type TransactionDetail struct {
 	// CLEAR-资金清算
 	// OTHER-其他
 	// WITHDRAW_CANCEL-提现退回
+	// example:
+	//
+	// SHARE
 	BusinessType *string `json:"business_type,omitempty" xml:"business_type,omitempty"`
 }
 
@@ -391,24 +503,54 @@ func (s *TransactionDetail) SetBusinessType(v string) *TransactionDetail {
 // 风险咨询设备信息
 type DeviceInfo struct {
 	// 设备指纹
+	// example:
+	//
+	// eYOIkkL8SJv0Vr6YxZqaLQ/deHNIc00rQr8zp8Upj6djHBW9oC9RJcdG
 	DeviceFingerprint *string `json:"device_fingerprint,omitempty" xml:"device_fingerprint,omitempty"`
 	// 设备制造商
+	// example:
+	//
+	// xiaomi
 	DeviceBrand *string `json:"device_brand,omitempty" xml:"device_brand,omitempty"`
 	// 设备具体型号
+	// example:
+	//
+	// 2210132C
 	DeviceModel *string `json:"device_model,omitempty" xml:"device_model,omitempty"`
 	// 操作系统类型
+	// example:
+	//
+	// android
 	Os *string `json:"os,omitempty" xml:"os,omitempty"`
 	// 操作系统版本
+	// example:
+	//
+	// android 16
 	OsVersion *string `json:"os_version,omitempty" xml:"os_version,omitempty"`
 	// 设备rom版本
+	// example:
+	//
+	// 3.0.3.0.WMBCNXM
 	RomModel *string `json:"rom_model,omitempty" xml:"rom_model,omitempty"`
 	// 设备硬盘信息
+	// example:
+	//
+	// 246455967744
 	HardDisk *string `json:"hard_disk,omitempty" xml:"hard_disk,omitempty"`
 	// 内存容量
+	// example:
+	//
+	// 7603436
 	Memory *string `json:"memory,omitempty" xml:"memory,omitempty"`
 	// 设备网络ip
+	// example:
+	//
+	// 127.0.0.1
 	CameraInfo *string `json:"camera_info,omitempty" xml:"camera_info,omitempty"`
 	// 网关入口ip
+	// example:
+	//
+	// 127.0.0.1
 	GatewayIp *string `json:"gateway_ip,omitempty" xml:"gateway_ip,omitempty"`
 }
 
@@ -473,15 +615,27 @@ func (s *DeviceInfo) SetGatewayIp(v string) *DeviceInfo {
 // 身份四要素证件及户籍信息
 type Residency struct {
 	// 证件是否最新（1 最新、0非最新）
+	// example:
+	//
+	// 0
 	IsNewest *string `json:"is_newest,omitempty" xml:"is_newest,omitempty"`
 	// 证件是否挂失（1 挂失、0非挂失）
+	// example:
+	//
+	// 0
 	IsLosted *string `json:"is_losted,omitempty" xml:"is_losted,omitempty"`
 	// 证件是否过期（1 过期、0非过期）
+	// example:
+	//
+	// 0
 	IsExpired *string `json:"is_expired,omitempty" xml:"is_expired,omitempty"`
 	// 户籍状态
 	// 0 有效
 	// 1 有效（户籍迁出，但未迁入）
 	// 2 无效（死亡、失踪、迁出、服 兵役、出国境定居、消除重复登记人口、冻结户口、重载注销等）
+	// example:
+	//
+	// 0
 	ResidencyStatus *string `json:"residency_status,omitempty" xml:"residency_status,omitempty"`
 }
 
@@ -516,76 +670,184 @@ func (s *Residency) SetResidencyStatus(v string) *Residency {
 // 车辆资产验证详版车辆信息
 type CarInfoDetail struct {
 	// 车辆型号
+	// example:
+	//
+	// FV7144LBDBG
 	Clxh *string `json:"clxh,omitempty" xml:"clxh,omitempty"`
 	// 发动机号
+	// example:
+	//
+	// N10514
 	EngineCode *string `json:"engine_code,omitempty" xml:"engine_code,omitempty"`
 	// 发动机型号
+	// example:
+	//
+	// CST
 	EngineModel *string `json:"engine_model,omitempty" xml:"engine_model,omitempty"`
 	// 生产时间
+	// example:
+	//
+	// 2022-08-17
 	ProductionTime *string `json:"production_time,omitempty" xml:"production_time,omitempty"`
 	// 品牌名称
+	// example:
+	//
+	// 大众
 	BrandName *string `json:"brand_name,omitempty" xml:"brand_name,omitempty"`
 	// 高尔夫(第七代,2014-)
+	// example:
+	//
+	// series_name
 	SeriesName *string `json:"series_name,omitempty" xml:"series_name,omitempty"`
 	// 年款
+	// example:
+	//
+	// 2016
 	ModelYear *string `json:"model_year,omitempty" xml:"model_year,omitempty"`
 	// 款型名称
+	// example:
+	//
+	// 极狐αT 653S+ 160kW 22款;极狐αT 653S 160kW 22款
 	VehicleName *string `json:"vehicle_name,omitempty" xml:"vehicle_name,omitempty"`
 	// 指导价
+	// example:
+	//
+	// 28.23万;26.23万
 	GuidePrice *string `json:"guide_price,omitempty" xml:"guide_price,omitempty"`
 	// 车身颜色
+	// example:
+	//
+	// 黑/白
 	Color *string `json:"color,omitempty" xml:"color,omitempty"`
 	// 车型级别
+	// example:
+	//
+	// vehicle_level
 	VehicleLevel *string `json:"vehicle_level,omitempty" xml:"vehicle_level,omitempty"`
 	// 车型种类
+	// example:
+	//
+	// 多用途乘用车
 	VehicleType *string `json:"vehicle_type,omitempty" xml:"vehicle_type,omitempty"`
 	// 车身结构
+	// example:
+	//
+	// 两厢车
 	BodyStruct *string `json:"body_struct,omitempty" xml:"body_struct,omitempty"`
 	//  燃料种类
+	// example:
+	//
+	// 汽油
 	FuelType *string `json:"fuel_type,omitempty" xml:"fuel_type,omitempty"`
 	// 驱动方式
+	// example:
+	//
+	// 前置前驱
 	DriveWay *string `json:"drive_way,omitempty" xml:"drive_way,omitempty"`
 	// 底盘型号-商用车用
+	// example:
+	//
+	// chassis_model
 	ChassisModel *string `json:"chassis_model,omitempty" xml:"chassis_model,omitempty"`
 	// 排放标准
+	// example:
+	//
+	// GB18352.5-2013
 	EmissionStandard *string `json:"emission_standard,omitempty" xml:"emission_standard,omitempty"`
 	// 排量
+	// example:
+	//
+	// 1.4T
 	Displacement *string `json:"displacement,omitempty" xml:"displacement,omitempty"`
 	// 长
+	// example:
+	//
+	// 4255
 	Length *string `json:"length,omitempty" xml:"length,omitempty"`
 	// 宽
+	// example:
+	//
+	// 1799
 	Width *string `json:"width,omitempty" xml:"width,omitempty"`
 	// 高
+	// example:
+	//
+	// 1452
 	Height *string `json:"height,omitempty" xml:"height,omitempty"`
 	// 总质量
+	// example:
+	//
+	// 1760
 	TotalMass *string `json:"total_mass,omitempty" xml:"total_mass,omitempty"`
 	// 整备质量
+	// example:
+	//
+	// 1280
 	CurbWeight *string `json:"curb_weight,omitempty" xml:"curb_weight,omitempty"`
 	// 前轮距
+	// example:
+	//
+	// 1549
 	TireDistanceBefore *string `json:"tire_distance_before,omitempty" xml:"tire_distance_before,omitempty"`
 	// 后轮距
+	// example:
+	//
+	// 1640
 	TireDistanceAfter *string `json:"tire_distance_after,omitempty" xml:"tire_distance_after,omitempty"`
 	// 轴数
+	// example:
+	//
+	// 2
 	AxesNumber *string `json:"axes_number,omitempty" xml:"axes_number,omitempty"`
 	// 轴距
+	// example:
+	//
+	// 2637
 	WheelBase *string `json:"wheel_base,omitempty" xml:"wheel_base,omitempty"`
 	// 座位数
+	// example:
+	//
+	// 5
 	SeatingCapacity *string `json:"seating_capacity,omitempty" xml:"seating_capacity,omitempty"`
 	// 核定载质量
+	// example:
+	//
+	// approved_load
 	ApprovedLoad *string `json:"approved_load,omitempty" xml:"approved_load,omitempty"`
 	// 准牵引总质量
+	// example:
+	//
+	// quasi_traction
 	QuasiTraction *string `json:"quasi_traction,omitempty" xml:"quasi_traction,omitempty"`
 	// 轮胎规格
+	// example:
+	//
+	// tire_size
 	TireSize *string `json:"tire_size,omitempty" xml:"tire_size,omitempty"`
 	// 轮胎数
+	// example:
+	//
+	// 4
 	TireNumber *string `json:"tire_number,omitempty" xml:"tire_number,omitempty"`
 	//  变速箱
+	// example:
+	//
+	// 7挡双离合
 	Transmission *string `json:"transmission,omitempty" xml:"transmission,omitempty"`
 	//  功率
+	// example:
+	//
+	// 额定功率:70/峰值功率:160
 	Power *string `json:"power,omitempty" xml:"power,omitempty"`
 	// 油耗
+	// example:
+	//
+	// 5.80
 	FuelConsumption *string `json:"fuel_consumption,omitempty" xml:"fuel_consumption,omitempty"`
 	// 环保标准
+	// example:
+	//
+	// 国IV(国V)
 	EnvironmentalStandards *string `json:"environmental_standards,omitempty" xml:"environmental_standards,omitempty"`
 }
 
@@ -780,16 +1042,31 @@ func (s *CarInfoDetail) SetEnvironmentalStandards(v string) *CarInfoDetail {
 // 银行卡代扣一键绑卡账户信息
 type AccInfo struct {
 	// 身份证号
+	// example:
+	//
+	// 111222190002309999
 	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty"`
 	// 持卡人姓名
+	// example:
+	//
+	// 张三
 	CertName *string `json:"cert_name,omitempty" xml:"cert_name,omitempty"`
 	// 银行卡号
+	// example:
+	//
+	// 7881620854713
 	BankCard *string `json:"bank_card,omitempty" xml:"bank_card,omitempty"`
 	// 手机号
+	// example:
+	//
+	// 13900001234
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	// 银行卡类型，
 	// 0：借记卡
 	// 1：信用卡
+	// example:
+	//
+	// 0
 	CardType *string `json:"card_type,omitempty" xml:"card_type,omitempty"`
 }
 
@@ -829,14 +1106,29 @@ func (s *AccInfo) SetCardType(v string) *AccInfo {
 // AIGC风险专项检测
 type AigcRiskResult struct {
 	// AIGC风险检测评分
+	// example:
+	//
+	// safe
 	AigcRiskLevel *string `json:"aigc_risk_level,omitempty" xml:"aigc_risk_level,omitempty"`
 	// 图像伪造分数
+	// example:
+	//
+	// 0.2
 	DeepfakeScore *string `json:"deepfake_score,omitempty" xml:"deepfake_score,omitempty"`
 	// 图像伪造结论
+	// example:
+	//
+	// T
 	DeepfakeResult *string `json:"deepfake_result,omitempty" xml:"deepfake_result,omitempty"`
 	// 视频伪造分数
+	// example:
+	//
+	// 0.2
 	VideoForgeryScore *string `json:"video_forgery_score,omitempty" xml:"video_forgery_score,omitempty"`
 	// 视频伪造结论
+	// example:
+	//
+	// T
 	VideoForgeryResult *string `json:"video_forgery_result,omitempty" xml:"video_forgery_result,omitempty"`
 }
 
@@ -876,12 +1168,24 @@ func (s *AigcRiskResult) SetVideoForgeryResult(v string) *AigcRiskResult {
 // 车辆资产验证旗舰版车辆信息
 type CarInfo struct {
 	// 是否高频使用，格式：YES/NO
+	// example:
+	//
+	// YES
 	HighFrequency *string `json:"high_frequency,omitempty" xml:"high_frequency,omitempty"`
 	// 车辆价值区间，格式：1，2，3...
+	// example:
+	//
+	// 1
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 	// 车辆类型，格式：1，2，3
+	// example:
+	//
+	// 1
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 	// 登记时间
+	// example:
+	//
+	// 1
 	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
@@ -918,28 +1222,64 @@ type DeviceRiskInfo struct {
 	// 设备是否root
 	IsDeviceRooted *bool `json:"is_device_rooted,omitempty" xml:"is_device_rooted,omitempty"`
 	// 设备是否hook
+	// example:
+	//
+	// true, false
 	IsDeviceHooked *bool `json:"is_device_hooked,omitempty" xml:"is_device_hooked,omitempty"`
 	// 设备是否使用定制rom
+	// example:
+	//
+	// true, false
 	IsCustomRom *bool `json:"is_custom_rom,omitempty" xml:"is_custom_rom,omitempty"`
 	// 设备是否是云手机
+	// example:
+	//
+	// true, false
 	IsCloudPhone *bool `json:"is_cloud_phone,omitempty" xml:"is_cloud_phone,omitempty"`
 	// 是否为模拟器
+	// example:
+	//
+	// true, false
 	IsEmulator *bool `json:"is_emulator,omitempty" xml:"is_emulator,omitempty"`
 	// 设备是否支持虚拟摄像头
+	// example:
+	//
+	// true, false
 	HasVirtualCamera *bool `json:"has_virtual_camera,omitempty" xml:"has_virtual_camera,omitempty"`
 	// 设备是否使用虚拟摄像头
+	// example:
+	//
+	// true, false
 	IsUsingVirtualCamera *bool `json:"is_using_virtual_camera,omitempty" xml:"is_using_virtual_camera,omitempty"`
 	// 设备是否有重打包风险
+	// example:
+	//
+	// true, false
 	HasRepackRisk *bool `json:"has_repack_risk,omitempty" xml:"has_repack_risk,omitempty"`
 	// 设备是否多开
+	// example:
+	//
+	// true, false
 	IsMultiInstance *bool `json:"is_multi_instance,omitempty" xml:"is_multi_instance,omitempty"`
 	// 设备是否开启虚拟定位
+	// example:
+	//
+	// true, false
 	IsFakeLocation *bool `json:"is_fake_location,omitempty" xml:"is_fake_location,omitempty"`
 	// 有其他注入行为
+	// example:
+	//
+	// true, false
 	HasOtherInjection *bool `json:"has_other_injection,omitempty" xml:"has_other_injection,omitempty"`
 	// 设备是否有其他自动化工具
+	// example:
+	//
+	// true, false
 	HasAtuomationTools *bool `json:"has_atuomation_tools,omitempty" xml:"has_atuomation_tools,omitempty"`
 	// 风险sdk的JSON格式数据
+	// example:
+	//
+	// {}
 	RiskSdkJson *string `json:"risk_sdk_json,omitempty" xml:"risk_sdk_json,omitempty"`
 }
 
@@ -1019,8 +1359,14 @@ func (s *DeviceRiskInfo) SetRiskSdkJson(v string) *DeviceRiskInfo {
 // 卡证OCR风险结果
 type RiskInfo struct {
 	// 是否为复印件（仅身份证、银行卡含该字段）。0：否，1：是
+	// example:
+	//
+	// 0
 	Copy *string `json:"copy,omitempty" xml:"copy,omitempty"`
 	// 是否翻拍（仅身份证含该字段）。0：否，1：是
+	// example:
+	//
+	// 0
 	Reshoot *string `json:"reshoot,omitempty" xml:"reshoot,omitempty"`
 	// normal-识别正常
 	// non_idcard-上传的图片中不包含身份证
@@ -1029,6 +1375,9 @@ type RiskInfo struct {
 	// over_exposure-身份证关键字段反光或过曝
 	// over_dark-身份证欠曝（亮度过低）
 	// unknown-未知状态
+	// example:
+	//
+	// []
 	ImageStatus []*string `json:"image_status,omitempty" xml:"image_status,omitempty" type:"Repeated"`
 	// 输入参数 risk_info_type=true 时，则返回该字段，判断身份证是否存在风险，返回值：
 	// normal-正常身份证；
@@ -1037,10 +1386,19 @@ type RiskInfo struct {
 	// screen-翻拍；
 	// PS-被PS修改；
 	// unknown-其他未知情况
+	// example:
+	//
+	// []
 	RiskType []*string `json:"risk_type,omitempty" xml:"risk_type,omitempty" type:"Repeated"`
 	// 图片质量
+	// example:
+	//
+	// {}
 	CardQuality *CardQuality `json:"card_quality,omitempty" xml:"card_quality,omitempty"`
 	// 证件一致性
+	// example:
+	//
+	// 1
 	IdcardNumberType *string `json:"idcard_number_type,omitempty" xml:"idcard_number_type,omitempty"`
 }
 
@@ -1085,8 +1443,14 @@ func (s *RiskInfo) SetIdcardNumberType(v string) *RiskInfo {
 // 分账退款信息
 type ShareRefundInfo struct {
 	// 商户id
+	// example:
+	//
+	// 1000
 	MerchantId *string `json:"merchant_id,omitempty" xml:"merchant_id,omitempty"`
 	// 分账金额,整数、单位为分
+	// example:
+	//
+	// 100
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -1111,8 +1475,14 @@ func (s *ShareRefundInfo) SetAmount(v string) *ShareRefundInfo {
 // 分账信息
 type ShareInfo struct {
 	// 商户id
+	// example:
+	//
+	// 1000
 	MerchantId *string `json:"merchant_id,omitempty" xml:"merchant_id,omitempty"`
 	// 分账金额,整数、单位为分
+	// example:
+	//
+	// 100
 	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -1137,99 +1507,234 @@ func (s *ShareInfo) SetAmount(v string) *ShareInfo {
 // 卡证OCR识别结果
 type OcrInfo struct {
 	// 当识别到身份证是人像面时返回FACE，国徽面时返回BACK
+	// example:
+	//
+	// FACE
 	Side *string `json:"side,omitempty" xml:"side,omitempty"`
 	// 当请求参数 return_photo = true时返回，头像切图的 base64 编码（无编码头，需自行处理）
 	// *当服务降级时，返回null
+	// example:
+	//
+	// BASE64String
 	Photo *string `json:"photo,omitempty" xml:"photo,omitempty"`
 	// {}	当请求参数 return_photo = true时返回，头像的位置信息（坐标0点为左上角）
 	// *当服务降级时，返回null
+	// example:
+	//
+	// {}
 	PhotoLocation *OcrLocation `json:"photo_location,omitempty" xml:"photo_location,omitempty"`
 	// 当请求参数 return_card = true时返回，身份证裁剪切图的 base64 编码（无编码头，需自行处理）
 	// *当服务降级时，返回null
+	// example:
+	//
+	// BASE64String
 	CardImage *string `json:"card_image,omitempty" xml:"card_image,omitempty"`
 	// 当请求参数 return_card = true时返回，身份证裁剪切图的位置信息（坐标0点为左上角）
 	// *当服务降级时，返回null
+	// example:
+	//
+	// {}
 	CardLocation *OcrLocation `json:"card_location,omitempty" xml:"card_location,omitempty"`
 	// 姓名
+	// example:
+	//
+	// 张三
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// 性别
+	// example:
+	//
+	// 女
 	Sex *string `json:"sex,omitempty" xml:"sex,omitempty"`
 	// 民族
+	// example:
+	//
+	// 汉
 	Nationality *string `json:"nationality,omitempty" xml:"nationality,omitempty"`
 	// 出生日期（yyyyMMdd格式）
+	// example:
+	//
+	// 19620710
 	Birth *string `json:"birth,omitempty" xml:"birth,omitempty"`
 	// 住址
+	// example:
+	//
+	// 江苏省睢宁县xxxx
 	Address *string `json:"address,omitempty" xml:"address,omitempty"`
 	// 身份证号
+	// example:
+	//
+	// 320324196207101234
 	Num *string `json:"num,omitempty" xml:"num,omitempty"`
 	// 发证日期（yyyyMMdd格式）
+	// example:
+	//
+	// 20120912
 	StartDate *string `json:"start_date,omitempty" xml:"start_date,omitempty"`
 	// 到期日（yyyyMMdd格式）。
 	// 如果是长期身份证，该字段内容为“长期”（不含引号）。
+	// example:
+	//
+	// 20220912
 	EndDate *string `json:"end_date,omitempty" xml:"end_date,omitempty"`
 	// 签发机关
+	// example:
+	//
+	// 宜川县公安局
 	Issue *string `json:"issue,omitempty" xml:"issue,omitempty"`
 	// 银行卡类型（CC（贷记卡），SCC（准贷记卡），DCC（存贷合一卡），DC（储蓄卡），PC（预付卡））
+	// example:
+	//
+	// CC
 	BankCardType *string `json:"bank_card_type,omitempty" xml:"bank_card_type,omitempty"`
 	// 银行名，不能识别时为空
+	// example:
+	//
+	// 中国建设银行
 	BankName *string `json:"bank_name,omitempty" xml:"bank_name,omitempty"`
 	// 银行卡号
+	// example:
+	//
+	// 6227001223456784765
 	CardNumber *string `json:"card_number,omitempty" xml:"card_number,omitempty"`
 	// 有效期至
+	// example:
+	//
+	// 10/30
 	ValidToDate *string `json:"valid_to_date,omitempty" xml:"valid_to_date,omitempty"`
 	// 证件类别
+	// example:
+	//
+	// 港澳居民来往内地通行证
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// 有效期限(yyyy.MM.dd-yyyy.MM.dd格式)
+	// example:
+	//
+	// 2017.07.13-2027.07.12
 	DateOfExpiry *string `json:"date_of_expiry,omitempty" xml:"date_of_expiry,omitempty"`
 	// 换证次数
+	// example:
+	//
+	// 01
 	ChangeNum *string `json:"change_num,omitempty" xml:"change_num,omitempty"`
 	// 初次领证日期
+	// example:
+	//
+	// 20200202
 	FirstIssue *string `json:"first_issue,omitempty" xml:"first_issue,omitempty"`
 	// 准驾车型
+	// example:
+	//
+	// C1
 	DriverClass *string `json:"driver_class,omitempty" xml:"driver_class,omitempty"`
 	// 档案编号
+	// example:
+	//
+	// 110012345678
 	DocNum *string `json:"doc_num,omitempty" xml:"doc_num,omitempty"`
 	// 电子驾驶证生成时间
+	// example:
+	//
+	// 2021年08月06日
 	IssueTime *string `json:"issue_time,omitempty" xml:"issue_time,omitempty"`
 	// 当前时间
+	// example:
+	//
+	// 2021年04月16日14:09:39
 	CurrentTime *string `json:"current_time,omitempty" xml:"current_time,omitempty"`
 	// 条形码编号
+	// example:
+	//
+	// *4360028416316*
 	BarCode *string `json:"bar_code,omitempty" xml:"bar_code,omitempty"`
 	// 累计记分
+	// example:
+	//
+	// 0
 	Points *string `json:"points,omitempty" xml:"points,omitempty"`
 	// 记录
+	// example:
+	//
+	// 请于每个记分周期结束后三十日接受审验。无记分的，免予本次审验。
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 	// 状态
+	// example:
+	//
+	// 正常
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 	// 车辆识别代号
+	// example:
+	//
+	// SSVUDDTT2J2022558
 	Vehicle *string `json:"vehicle,omitempty" xml:"vehicle,omitempty"`
 	// 品牌型号
+	// example:
+	//
+	// 大众汽车牌SVW6474DFD
 	Model *string `json:"model,omitempty" xml:"model,omitempty"`
 	// 车辆类型
+	// example:
+	//
+	// 小型普通客车
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 	// 使用性质
+	// example:
+	//
+	// 非运营
 	Useage *string `json:"useage,omitempty" xml:"useage,omitempty"`
 	// 发动机号码
+	// example:
+	//
+	// 111533
 	EngNum *string `json:"eng_num,omitempty" xml:"eng_num,omitempty"`
 	// 车牌号码
+	// example:
+	//
+	// 浙BF12345
 	Plate *string `json:"plate,omitempty" xml:"plate,omitempty"`
 	// 检验记录
+	// example:
+	//
+	// 2018年11月渝A()
 	InspecRecord *string `json:"inspec_record,omitempty" xml:"inspec_record,omitempty"`
 	// 核定载质量
+	// example:
+	//
+	// 1490kg
 	Load *string `json:"load,omitempty" xml:"load,omitempty"`
 	// 整备质量
+	// example:
+	//
+	// 2600kg
 	CurbMass *string `json:"curb_mass,omitempty" xml:"curb_mass,omitempty"`
 	// 外廓尺寸
+	// example:
+	//
+	// 5990X2500X4400mm
 	OverallDimension *string `json:"overall_dimension,omitempty" xml:"overall_dimension,omitempty"`
 	// 核定载人数
+	// example:
+	//
+	// 5人
 	Seating *string `json:"seating,omitempty" xml:"seating,omitempty"`
 	// 总质量
+	// example:
+	//
+	// 4290kg
 	GrossMass *string `json:"gross_mass,omitempty" xml:"gross_mass,omitempty"`
 	// 燃油类型
+	// example:
+	//
+	// 柴油
 	Fuel *string `json:"fuel,omitempty" xml:"fuel,omitempty"`
 	// 准牵引总质量
+	// example:
+	//
+	// 2700kg
 	TractionMass *string `json:"traction_mass,omitempty" xml:"traction_mass,omitempty"`
 	// 证芯编号
+	// example:
+	//
+	// 50027372380230106
 	ChipNum *string `json:"chip_num,omitempty" xml:"chip_num,omitempty"`
 }
 
@@ -1469,10 +1974,19 @@ func (s *OcrInfo) SetChipNum(v string) *OcrInfo {
 // 车辆资产验证增强版车辆信息
 type CarInfoPlus struct {
 	// 车牌号
+	// example:
+	//
+	// 京A123456
 	PlateNo *string `json:"plate_no,omitempty" xml:"plate_no,omitempty"`
 	// 车辆型号，格式：1，2，3...
+	// example:
+	//
+	// 1
 	Model *string `json:"model,omitempty" xml:"model,omitempty"`
 	// 车辆颜色，格式：1，2，3
+	// example:
+	//
+	// 1
 	Color *string `json:"color,omitempty" xml:"color,omitempty"`
 }
 
@@ -1502,68 +2016,164 @@ func (s *CarInfoPlus) SetColor(v string) *CarInfoPlus {
 // 车辆资产验证简版车辆信息
 type CarInfoBrief struct {
 	// 生产时间
+	// example:
+	//
+	// 2015-11-16
 	ProductionTime *string `json:"production_time,omitempty" xml:"production_time,omitempty"`
 	// 品牌名称
+	// example:
+	//
+	// 大众
 	BrandName *string `json:"brand_name,omitempty" xml:"brand_name,omitempty"`
 	// 车系名称
+	// example:
+	//
+	// 高尔夫
 	SeriesName *string `json:"series_name,omitempty" xml:"series_name,omitempty"`
 	// 燃料种类
+	// example:
+	//
+	// 汽油
 	FuelType *string `json:"fuel_type,omitempty" xml:"fuel_type,omitempty"`
 	// 轴数
+	// example:
+	//
+	// 2
 	AxesNumber *string `json:"axes_number,omitempty" xml:"axes_number,omitempty"`
 	// 轴距
+	// example:
+	//
+	// 2915
 	WheelBase *string `json:"wheel_base,omitempty" xml:"wheel_base,omitempty"`
 	// 排量描述
+	// example:
+	//
+	// 1.3L
 	EngineDescribe *string `json:"engine_describe,omitempty" xml:"engine_describe,omitempty"`
 	// 车身颜色
+	// example:
+	//
+	// 黑
 	Color *string `json:"color,omitempty" xml:"color,omitempty"`
 	// 年款
+	// example:
+	//
+	// 2018
 	YearPattern *string `json:"year_pattern,omitempty" xml:"year_pattern,omitempty"`
 	// 生产厂商
+	// example:
+	//
+	// 上海通用汽车有限公司
 	ManufacturerName *string `json:"manufacturer_name,omitempty" xml:"manufacturer_name,omitempty"`
 	// 发布年月
+	// example:
+	//
+	// 201711
 	PublishDate *string `json:"publish_date,omitempty" xml:"publish_date,omitempty"`
 	// 款型
+	// example:
+	//
+	// 赛欧3 1.3L 手动挡 舒适天窗版 18款
 	SaleCode *string `json:"sale_code,omitempty" xml:"sale_code,omitempty"`
+	// 驱动形式
+	// example:
+	//
 	// 驱动形式
 	DriveForm *string `json:"drive_form,omitempty" xml:"drive_form,omitempty"`
 	// 国产/进口/合资
+	// example:
+	//
+	// 合资
 	ImportFlag *string `json:"import_flag,omitempty" xml:"import_flag,omitempty"`
 	// 后轮距
+	// example:
+	//
+	// 1468
 	TireDistanceAfter *string `json:"tire_distance_after,omitempty" xml:"tire_distance_after,omitempty"`
 	// 排量
+	// example:
+	//
+	// 1349
 	Displacement *string `json:"displacement,omitempty" xml:"displacement,omitempty"`
 	// 排放标准
+	// example:
+	//
+	// 国五
 	EmissionStandard *string `json:"emission_standard,omitempty" xml:"emission_standard,omitempty"`
 	// 功率
+	// example:
+	//
+	// 73
 	Power *string `json:"power,omitempty" xml:"power,omitempty"`
 	// 变速箱类型
+	// example:
+	//
+	// 手动档
 	Gearbox *string `json:"gearbox,omitempty" xml:"gearbox,omitempty"`
 	// 车辆类型
+	// example:
+	//
+	// 轿车
 	VehicleType *string `json:"vehicle_type,omitempty" xml:"vehicle_type,omitempty"`
 	// 发动机型号
+	// example:
+	//
+	// LEW
 	EngineModel *string `json:"engine_model,omitempty" xml:"engine_model,omitempty"`
 	// 轮胎数
+	// example:
+	//
+	// 4
 	TireCount *string `json:"tire_count,omitempty" xml:"tire_count,omitempty"`
 	// 座位数
+	// example:
+	//
+	// 5
 	RatedPassengers *string `json:"rated_passengers,omitempty" xml:"rated_passengers,omitempty"`
 	// 指导价
+	// example:
+	//
+	// 5.69万
 	GuidedPrice *string `json:"guided_price,omitempty" xml:"guided_price,omitempty"`
 	// 车长
+	// example:
+	//
+	// 4300
 	Length *string `json:"length,omitempty" xml:"length,omitempty"`
 	// 车宽
+	// example:
+	//
+	// 1735
 	Width *string `json:"width,omitempty" xml:"width,omitempty"`
 	// 车高
+	// example:
+	//
+	// 1504
 	Height *string `json:"height,omitempty" xml:"height,omitempty"`
 	// 整备质量
+	// example:
+	//
+	// 1045
 	CurbWeight *string `json:"curb_weight,omitempty" xml:"curb_weight,omitempty"`
 	// 总质量
+	// example:
+	//
+	// 1460
 	TotalWeight *string `json:"total_weight,omitempty" xml:"total_weight,omitempty"`
 	// 前轮距
+	// example:
+	//
+	// 1477
 	TireDistanceBefore *string `json:"tire_distance_before,omitempty" xml:"tire_distance_before,omitempty"`
 	// 额定载重量
+	// example:
+	//
+	// 5
 	RatedPlyload *string `json:"rated_plyload,omitempty" xml:"rated_plyload,omitempty"`
 	// 牵引总质量
+	// example:
+	//
+	// 3
 	TrailerWeight *string `json:"trailer_weight,omitempty" xml:"trailer_weight,omitempty"`
 }
 
@@ -1738,16 +2348,34 @@ func (s *CarInfoBrief) SetTrailerWeight(v string) *CarInfoBrief {
 // 综合风险
 type RiskResult struct {
 	// 活体检测标签
+	// example:
+	//
+	// {}
 	ImageLabels *string `json:"image_labels,omitempty" xml:"image_labels,omitempty"`
 	// 设备风险等级
+	// example:
+	//
+	// safe
 	DeviceRiskLevel *string `json:"device_risk_level,omitempty" xml:"device_risk_level,omitempty"`
 	// 设备风险标签
+	// example:
+	//
+	// {}
 	DeviceRiskLabels *string `json:"device_risk_labels,omitempty" xml:"device_risk_labels,omitempty"`
 	// 行为风险等级
+	// example:
+	//
+	// safe
 	BehaviorRiskLevel *string `json:"behavior_risk_level,omitempty" xml:"behavior_risk_level,omitempty"`
 	// 行为风险标签
+	// example:
+	//
+	// {}
 	BehaviorRiskLabels *string `json:"behavior_risk_labels,omitempty" xml:"behavior_risk_labels,omitempty"`
 	// 是否关联攻击
+	// example:
+	//
+	// true, false
 	IsCorrelate *bool `json:"is_correlate,omitempty" xml:"is_correlate,omitempty"`
 }
 
@@ -1792,8 +2420,14 @@ func (s *RiskResult) SetIsCorrelate(v bool) *RiskResult {
 // 键值对
 type XNameValuePair struct {
 	// 键名
+	// example:
+	//
+	// key
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 键值
+	// example:
+	//
+	// value
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -6252,7 +6886,7 @@ type QueryBankLivenessRequest struct {
 	// 加密方式
 	EncryptType *string `json:"encrypt_type,omitempty" xml:"encrypt_type,omitempty" require:"true"`
 	// 身份证号
-	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty" require:"true"`
+	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty"`
 	// 银行编码
 	BankCode *string `json:"bank_code,omitempty" xml:"bank_code,omitempty" require:"true"`
 	// 1=借记卡+贷记卡（默认）；2=借记卡
@@ -7348,7 +7982,7 @@ type QueryBankLivenessplusRequest struct {
 	// 加密方式
 	EncryptType *string `json:"encrypt_type,omitempty" xml:"encrypt_type,omitempty" require:"true"`
 	// 身份证号
-	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty" require:"true"`
+	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty"`
 	// 银行编码
 	BankCode *string `json:"bank_code,omitempty" xml:"bank_code,omitempty" require:"true"`
 	// 1=借记卡+贷记卡（默认）；2=借记卡
@@ -8232,7 +8866,7 @@ type QueryBankLivenessfourRequest struct {
 	// 加密方式
 	EncryptType *string `json:"encrypt_type,omitempty" xml:"encrypt_type,omitempty" require:"true"`
 	// 身份证号
-	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty" require:"true"`
+	CertNo *string `json:"cert_no,omitempty" xml:"cert_no,omitempty"`
 	// 银行编码
 	BankCode *string `json:"bank_code,omitempty" xml:"bank_code,omitempty" require:"true"`
 	// bank_card_type
@@ -12163,13 +12797,23 @@ type InitServerWillauthRequest struct {
 	// 加密方式
 	EncType *string `json:"enc_type,omitempty" xml:"enc_type,omitempty"`
 	// 无源比对图片base64
-	FacePictureRef *string `json:"face_picture_ref,omitempty" xml:"face_picture_ref,omitempty"`
+	FacialPictureRef *string `json:"facial_picture_ref,omitempty" xml:"facial_picture_ref,omitempty"`
 	// 业务回跳地址
 	ReturnUrl *string `json:"return_url,omitempty" xml:"return_url,omitempty"`
 	// 业务请求唯一标识
 	OuterOrderNo *string `json:"outer_order_no,omitempty" xml:"outer_order_no,omitempty" require:"true"`
 	// 扩展参数
 	ExternParam *string `json:"extern_param,omitempty" xml:"extern_param,omitempty"`
+	// 身份信息来源类型，当前仅支持证件（CERT_INFO）
+	IdentityType *string `json:"identity_type,omitempty" xml:"identity_type,omitempty"`
+	// 证件类型，当前仅支持身份证类型证件，包括：二代身份证、港澳居住证、台湾居住证（IDENTITY_CARD）
+	CertType *string `json:"cert_type,omitempty" xml:"cert_type,omitempty"`
+	// 要进行活体检测的类型
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// 图片/视频的传入加密模式
+	MaterialEncType *string `json:"material_enc_type,omitempty" xml:"material_enc_type,omitempty"`
+	// RSA/SM2公钥加密后的AES/SM4密钥（Base64编码），用于传入的加密图片/视频。
+	MaterialEncToken *string `json:"material_enc_token,omitempty" xml:"material_enc_token,omitempty"`
 }
 
 func (s InitServerWillauthRequest) String() string {
@@ -12225,8 +12869,8 @@ func (s *InitServerWillauthRequest) SetEncType(v string) *InitServerWillauthRequ
 	return s
 }
 
-func (s *InitServerWillauthRequest) SetFacePictureRef(v string) *InitServerWillauthRequest {
-	s.FacePictureRef = &v
+func (s *InitServerWillauthRequest) SetFacialPictureRef(v string) *InitServerWillauthRequest {
+	s.FacialPictureRef = &v
 	return s
 }
 
@@ -12242,6 +12886,31 @@ func (s *InitServerWillauthRequest) SetOuterOrderNo(v string) *InitServerWillaut
 
 func (s *InitServerWillauthRequest) SetExternParam(v string) *InitServerWillauthRequest {
 	s.ExternParam = &v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetIdentityType(v string) *InitServerWillauthRequest {
+	s.IdentityType = &v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetCertType(v string) *InitServerWillauthRequest {
+	s.CertType = &v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetModel(v string) *InitServerWillauthRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetMaterialEncType(v string) *InitServerWillauthRequest {
+	s.MaterialEncType = &v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetMaterialEncToken(v string) *InitServerWillauthRequest {
+	s.MaterialEncToken = &v
 	return s
 }
 
@@ -12288,6 +12957,188 @@ func (s *InitServerWillauthResponse) SetCertifyId(v string) *InitServerWillauthR
 
 func (s *InitServerWillauthResponse) SetCertifyUrl(v string) *InitServerWillauthResponse {
 	s.CertifyUrl = &v
+	return s
+}
+
+type QueryServerWillauthRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 认证唯一标识
+	CertifyId *string `json:"certify_id,omitempty" xml:"certify_id,omitempty" require:"true"`
+	// 外部唯一标识。用于定位。 值为32位长度的字母数字组合前面几位字符是商户自定义的简称，中间可以使用一段时间，后段可以使用一个随机或递增序列
+	OuterOrderNo *string `json:"outer_order_no,omitempty" xml:"outer_order_no,omitempty" require:"true"`
+	// 场景ID
+	SceneId *string `json:"scene_id,omitempty" xml:"scene_id,omitempty" require:"true"`
+	// 预留扩展业务参数
+	ExternParam *string `json:"extern_param,omitempty" xml:"extern_param,omitempty"`
+}
+
+func (s QueryServerWillauthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServerWillauthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServerWillauthRequest) SetAuthToken(v string) *QueryServerWillauthRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryServerWillauthRequest) SetProductInstanceId(v string) *QueryServerWillauthRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryServerWillauthRequest) SetCertifyId(v string) *QueryServerWillauthRequest {
+	s.CertifyId = &v
+	return s
+}
+
+func (s *QueryServerWillauthRequest) SetOuterOrderNo(v string) *QueryServerWillauthRequest {
+	s.OuterOrderNo = &v
+	return s
+}
+
+func (s *QueryServerWillauthRequest) SetSceneId(v string) *QueryServerWillauthRequest {
+	s.SceneId = &v
+	return s
+}
+
+func (s *QueryServerWillauthRequest) SetExternParam(v string) *QueryServerWillauthRequest {
+	s.ExternParam = &v
+	return s
+}
+
+type QueryServerWillauthResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 认证主体附件信息
+	MaterialInfo *string `json:"material_info,omitempty" xml:"material_info,omitempty"`
+	// 认证是否通过（活体+比对+意愿全部通过才返回true）
+	Passed *bool `json:"passed,omitempty" xml:"passed,omitempty"`
+}
+
+func (s QueryServerWillauthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServerWillauthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServerWillauthResponse) SetReqMsgId(v string) *QueryServerWillauthResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryServerWillauthResponse) SetResultCode(v string) *QueryServerWillauthResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryServerWillauthResponse) SetResultMsg(v string) *QueryServerWillauthResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryServerWillauthResponse) SetMaterialInfo(v string) *QueryServerWillauthResponse {
+	s.MaterialInfo = &v
+	return s
+}
+
+func (s *QueryServerWillauthResponse) SetPassed(v bool) *QueryServerWillauthResponse {
+	s.Passed = &v
+	return s
+}
+
+type QueryServerWillauthmaterialRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 实人认证唯一标识
+	CertifyId *string `json:"certify_id,omitempty" xml:"certify_id,omitempty" require:"true"`
+	// 扩展参数
+	ExternParam *string `json:"extern_param,omitempty" xml:"extern_param,omitempty"`
+	// 外部唯一标识。用于定位。 值为32位长度的字母数字组合前面几位字符是商户自定义的简称，中间可以使用一段时间，后段可以使用一个随机或递增序列
+	OuterOrderNo *string `json:"outer_order_no,omitempty" xml:"outer_order_no,omitempty" require:"true"`
+}
+
+func (s QueryServerWillauthmaterialRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServerWillauthmaterialRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServerWillauthmaterialRequest) SetAuthToken(v string) *QueryServerWillauthmaterialRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialRequest) SetProductInstanceId(v string) *QueryServerWillauthmaterialRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialRequest) SetCertifyId(v string) *QueryServerWillauthmaterialRequest {
+	s.CertifyId = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialRequest) SetExternParam(v string) *QueryServerWillauthmaterialRequest {
+	s.ExternParam = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialRequest) SetOuterOrderNo(v string) *QueryServerWillauthmaterialRequest {
+	s.OuterOrderNo = &v
+	return s
+}
+
+type QueryServerWillauthmaterialResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 认证材料信息
+	MaterialInfo *string `json:"material_info,omitempty" xml:"material_info,omitempty"`
+}
+
+func (s QueryServerWillauthmaterialResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServerWillauthmaterialResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServerWillauthmaterialResponse) SetReqMsgId(v string) *QueryServerWillauthmaterialResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialResponse) SetResultCode(v string) *QueryServerWillauthmaterialResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialResponse) SetResultMsg(v string) *QueryServerWillauthmaterialResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryServerWillauthmaterialResponse) SetMaterialInfo(v string) *QueryServerWillauthmaterialResponse {
+	s.MaterialInfo = &v
 	return s
 }
 
@@ -12596,6 +13447,34 @@ type ApplyExtYdataRequest struct {
 	SixthDeductionAmount *string `json:"sixth_deduction_amount,omitempty" xml:"sixth_deduction_amount,omitempty"`
 	// 预留扩展参数
 	ExternParam *string `json:"extern_param,omitempty" xml:"extern_param,omitempty"`
+	// 第七期是否扣款成功
+	SeventhDeduction *bool `json:"seventh_deduction,omitempty" xml:"seventh_deduction,omitempty"`
+	// 第七期扣款金额
+	SeventhDeductionAmount *string `json:"seventh_deduction_amount,omitempty" xml:"seventh_deduction_amount,omitempty"`
+	// 第八期是否扣款成功
+	EighthDeduction *bool `json:"eighth_deduction,omitempty" xml:"eighth_deduction,omitempty"`
+	// 第八期扣款金额
+	EighthDeductionAmount *string `json:"eighth_deduction_amount,omitempty" xml:"eighth_deduction_amount,omitempty"`
+	// 第九期是否扣款成功
+	NinthDeduction *bool `json:"ninth_deduction,omitempty" xml:"ninth_deduction,omitempty"`
+	// 第九期扣款金额
+	NinthDeductionAmount *string `json:"ninth_deduction_amount,omitempty" xml:"ninth_deduction_amount,omitempty"`
+	// 第十期是否扣款成功
+	TenthDeduction *bool `json:"tenth_deduction,omitempty" xml:"tenth_deduction,omitempty"`
+	// 第十期扣款金额
+	TenthDeductionAmount *string `json:"tenth_deduction_amount,omitempty" xml:"tenth_deduction_amount,omitempty"`
+	// 第十一期是否扣款成功
+	EleventhDeduction *bool `json:"eleventh_deduction,omitempty" xml:"eleventh_deduction,omitempty"`
+	// 第十一期扣款金额
+	EleventhDeductionAmount *string `json:"eleventh_deduction_amount,omitempty" xml:"eleventh_deduction_amount,omitempty"`
+	// 第十二期是否扣款成功
+	TwelfthDeduction *bool `json:"twelfth_deduction,omitempty" xml:"twelfth_deduction,omitempty"`
+	// 第十二期扣款金额
+	TwelfthDeductionAmount *string `json:"twelfth_deduction_amount,omitempty" xml:"twelfth_deduction_amount,omitempty"`
+	// 第十三期是否扣款成功
+	ThirteenthDeduction *bool `json:"thirteenth_deduction,omitempty" xml:"thirteenth_deduction,omitempty"`
+	// 第十三期扣款金额
+	ThirteenthDeductionAmount *string `json:"thirteenth_deduction_amount,omitempty" xml:"thirteenth_deduction_amount,omitempty"`
 }
 
 func (s ApplyExtYdataRequest) String() string {
@@ -12713,6 +13592,76 @@ func (s *ApplyExtYdataRequest) SetSixthDeductionAmount(v string) *ApplyExtYdataR
 
 func (s *ApplyExtYdataRequest) SetExternParam(v string) *ApplyExtYdataRequest {
 	s.ExternParam = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetSeventhDeduction(v bool) *ApplyExtYdataRequest {
+	s.SeventhDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetSeventhDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.SeventhDeductionAmount = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetEighthDeduction(v bool) *ApplyExtYdataRequest {
+	s.EighthDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetEighthDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.EighthDeductionAmount = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetNinthDeduction(v bool) *ApplyExtYdataRequest {
+	s.NinthDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetNinthDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.NinthDeductionAmount = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetTenthDeduction(v bool) *ApplyExtYdataRequest {
+	s.TenthDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetTenthDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.TenthDeductionAmount = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetEleventhDeduction(v bool) *ApplyExtYdataRequest {
+	s.EleventhDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetEleventhDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.EleventhDeductionAmount = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetTwelfthDeduction(v bool) *ApplyExtYdataRequest {
+	s.TwelfthDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetTwelfthDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.TwelfthDeductionAmount = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetThirteenthDeduction(v bool) *ApplyExtYdataRequest {
+	s.ThirteenthDeduction = &v
+	return s
+}
+
+func (s *ApplyExtYdataRequest) SetThirteenthDeductionAmount(v string) *ApplyExtYdataRequest {
+	s.ThirteenthDeductionAmount = &v
 	return s
 }
 
@@ -13009,10 +13958,11 @@ type Client struct {
 	MaxRequestsPerHost      *int
 }
 
-/**
- * Init client with Config
- * @param config config contains the necessary information to create a client
- */
+// Description:
+//
+// # Init client with Config
+//
+// @param config - config contains the necessary information to create a client
 func NewClient(config *Config) (*Client, error) {
 	client := new(Client)
 	err := client.Init(config)
@@ -13020,7 +13970,7 @@ func NewClient(config *Config) (*Client, error) {
 }
 
 func (client *Client) Init(config *Config) (_err error) {
-	if tea.BoolValue(util.IsUnset(tea.ToMap(config))) {
+	if tea.BoolValue(util.IsUnset(config)) {
 		_err = tea.NewSDKError(map[string]interface{}{
 			"code":    "ParameterMissing",
 			"message": "'config' can not be unset",
@@ -13049,16 +13999,23 @@ func (client *Client) Init(config *Config) (_err error) {
 	return nil
 }
 
-/**
- * Encapsulate the request and invoke the network
- * @param action api name
- * @param protocol http or https
- * @param method e.g. GET
- * @param pathname pathname of every api
- * @param request which contains request params
- * @param runtime which controls some details of call api, such as retry times
- * @return the response
- */
+// Description:
+//
+// # Encapsulate the request and invoke the network
+//
+// @param action - api name
+//
+// @param protocol - http or https
+//
+// @param method - e.g. GET
+//
+// @param pathname - pathname of every api
+//
+// @param request - which contains request params
+//
+// @param runtime - which controls some details of call api, such as retry times
+//
+// @return the response
 func (client *Client) DoRequest(version *string, action *string, protocol *string, method *string, pathname *string, request map[string]interface{}, headers map[string]*string, runtime *util.RuntimeOptions) (_result map[string]interface{}, _err error) {
 	_err = tea.Validate(runtime)
 	if _err != nil {
@@ -13109,7 +14066,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.22.38"),
+				"sdk_version":      tea.String("1.22.44"),
 				"_prod_code":       tea.String("REALPERSON"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -13167,10 +14124,11 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 	return _resp, _err
 }
 
-/**
- * Description: 查询认证的结果和相关信息
- * Summary: 认证查询
- */
+// Description:
+//
+// Description: 查询认证的结果和相关信息
+//
+// Summary: 认证查询
 func (client *Client) QueryFacevrfServer(request *QueryFacevrfServerRequest) (_result *QueryFacevrfServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13183,10 +14141,11 @@ func (client *Client) QueryFacevrfServer(request *QueryFacevrfServerRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 查询认证的结果和相关信息
- * Summary: 认证查询
- */
+// Description:
+//
+// Description: 查询认证的结果和相关信息
+//
+// Summary: 认证查询
 func (client *Client) QueryFacevrfServerEx(request *QueryFacevrfServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryFacevrfServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13201,10 +14160,11 @@ func (client *Client) QueryFacevrfServerEx(request *QueryFacevrfServerRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 服务端认证创建，传入认证信息，获取认证ID（和url）
- * Summary: 认证创建
- */
+// Description:
+//
+// Description: 服务端认证创建，传入认证信息，获取认证ID（和url）
+//
+// Summary: 认证创建
 func (client *Client) CreateFacevrfServer(request *CreateFacevrfServerRequest) (_result *CreateFacevrfServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13217,10 +14177,11 @@ func (client *Client) CreateFacevrfServer(request *CreateFacevrfServerRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 服务端认证创建，传入认证信息，获取认证ID（和url）
- * Summary: 认证创建
- */
+// Description:
+//
+// Description: 服务端认证创建，传入认证信息，获取认证ID（和url）
+//
+// Summary: 认证创建
 func (client *Client) CreateFacevrfServerEx(request *CreateFacevrfServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateFacevrfServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13235,10 +14196,11 @@ func (client *Client) CreateFacevrfServerEx(request *CreateFacevrfServerRequest,
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
- * Summary: 纯服务端比对
- */
+// Description:
+//
+// Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
+//
+// Summary: 纯服务端比对
 func (client *Client) ExecFacevrfServer(request *ExecFacevrfServerRequest) (_result *ExecFacevrfServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13251,10 +14213,11 @@ func (client *Client) ExecFacevrfServer(request *ExecFacevrfServerRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
- * Summary: 纯服务端比对
- */
+// Description:
+//
+// Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
+//
+// Summary: 纯服务端比对
 func (client *Client) ExecFacevrfServerEx(request *ExecFacevrfServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecFacevrfServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13269,10 +14232,11 @@ func (client *Client) ExecFacevrfServerEx(request *ExecFacevrfServerRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 传入某次刷脸的certifyID，获得刷脸存证的pdf文件和司法脸统一证据ID，这两份数据可以在司法链的控制台中进行核验存证是否被记录在区块链上从而证实其真实可信。
- * Summary: 商户获取司法链上刷脸存证和统一证据ID
- */
+// Description:
+//
+// Description: 传入某次刷脸的certifyID，获得刷脸存证的pdf文件和司法脸统一证据ID，这两份数据可以在司法链的控制台中进行核验存证是否被记录在区块链上从而证实其真实可信。
+//
+// Summary: 商户获取司法链上刷脸存证和统一证据ID
 func (client *Client) GetFacevrfEvidence(request *GetFacevrfEvidenceRequest) (_result *GetFacevrfEvidenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13285,10 +14249,11 @@ func (client *Client) GetFacevrfEvidence(request *GetFacevrfEvidenceRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 传入某次刷脸的certifyID，获得刷脸存证的pdf文件和司法脸统一证据ID，这两份数据可以在司法链的控制台中进行核验存证是否被记录在区块链上从而证实其真实可信。
- * Summary: 商户获取司法链上刷脸存证和统一证据ID
- */
+// Description:
+//
+// Description: 传入某次刷脸的certifyID，获得刷脸存证的pdf文件和司法脸统一证据ID，这两份数据可以在司法链的控制台中进行核验存证是否被记录在区块链上从而证实其真实可信。
+//
+// Summary: 商户获取司法链上刷脸存证和统一证据ID
 func (client *Client) GetFacevrfEvidenceEx(request *GetFacevrfEvidenceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetFacevrfEvidenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13303,10 +14268,11 @@ func (client *Client) GetFacevrfEvidenceEx(request *GetFacevrfEvidenceRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 个人二要素认证
- * Summary: 个人二要素认证
- */
+// Description:
+//
+// Description: 个人二要素认证
+//
+// Summary: 个人二要素认证
 func (client *Client) CheckIndividualidTwometa(request *CheckIndividualidTwometaRequest) (_result *CheckIndividualidTwometaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13319,10 +14285,11 @@ func (client *Client) CheckIndividualidTwometa(request *CheckIndividualidTwometa
 	return _result, _err
 }
 
-/**
- * Description: 个人二要素认证
- * Summary: 个人二要素认证
- */
+// Description:
+//
+// Description: 个人二要素认证
+//
+// Summary: 个人二要素认证
 func (client *Client) CheckIndividualidTwometaEx(request *CheckIndividualidTwometaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckIndividualidTwometaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13337,10 +14304,11 @@ func (client *Client) CheckIndividualidTwometaEx(request *CheckIndividualidTwome
 	return _result, _err
 }
 
-/**
- * Description: 个人三要素认证
- * Summary: 个人三要素认证
- */
+// Description:
+//
+// Description: 个人三要素认证
+//
+// Summary: 个人三要素认证
 func (client *Client) CheckIndividualidThreemeta(request *CheckIndividualidThreemetaRequest) (_result *CheckIndividualidThreemetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13353,10 +14321,11 @@ func (client *Client) CheckIndividualidThreemeta(request *CheckIndividualidThree
 	return _result, _err
 }
 
-/**
- * Description: 个人三要素认证
- * Summary: 个人三要素认证
- */
+// Description:
+//
+// Description: 个人三要素认证
+//
+// Summary: 个人三要素认证
 func (client *Client) CheckIndividualidThreemetaEx(request *CheckIndividualidThreemetaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckIndividualidThreemetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13371,10 +14340,11 @@ func (client *Client) CheckIndividualidThreemetaEx(request *CheckIndividualidThr
 	return _result, _err
 }
 
-/**
- * Description: 个人四要素认证
- * Summary: 个人四要素认证
- */
+// Description:
+//
+// Description: 个人四要素认证
+//
+// Summary: 个人四要素认证
 func (client *Client) CheckIndividualidFourmeta(request *CheckIndividualidFourmetaRequest) (_result *CheckIndividualidFourmetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13387,10 +14357,11 @@ func (client *Client) CheckIndividualidFourmeta(request *CheckIndividualidFourme
 	return _result, _err
 }
 
-/**
- * Description: 个人四要素认证
- * Summary: 个人四要素认证
- */
+// Description:
+//
+// Description: 个人四要素认证
+//
+// Summary: 个人四要素认证
 func (client *Client) CheckIndividualidFourmetaEx(request *CheckIndividualidFourmetaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckIndividualidFourmetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13405,10 +14376,11 @@ func (client *Client) CheckIndividualidFourmetaEx(request *CheckIndividualidFour
 	return _result, _err
 }
 
-/**
- * Description: 个人三要素认证（场景路由）
- * Summary: 个人三要素认证（场景路由）
- */
+// Description:
+//
+// Description: 个人三要素认证（场景路由）
+//
+// Summary: 个人三要素认证（场景路由）
 func (client *Client) CheckRouteThreemeta(request *CheckRouteThreemetaRequest) (_result *CheckRouteThreemetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13421,10 +14393,11 @@ func (client *Client) CheckRouteThreemeta(request *CheckRouteThreemetaRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 个人三要素认证（场景路由）
- * Summary: 个人三要素认证（场景路由）
- */
+// Description:
+//
+// Description: 个人三要素认证（场景路由）
+//
+// Summary: 个人三要素认证（场景路由）
 func (client *Client) CheckRouteThreemetaEx(request *CheckRouteThreemetaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckRouteThreemetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13439,10 +14412,11 @@ func (client *Client) CheckRouteThreemetaEx(request *CheckRouteThreemetaRequest,
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端声纹注册
- * Summary: 纯服务端声纹注册
- */
+// Description:
+//
+// Description: 纯服务端声纹注册
+//
+// Summary: 纯服务端声纹注册
 func (client *Client) CreateVoiceprintServermode(request *CreateVoiceprintServermodeRequest) (_result *CreateVoiceprintServermodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13455,10 +14429,11 @@ func (client *Client) CreateVoiceprintServermode(request *CreateVoiceprintServer
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端声纹注册
- * Summary: 纯服务端声纹注册
- */
+// Description:
+//
+// Description: 纯服务端声纹注册
+//
+// Summary: 纯服务端声纹注册
 func (client *Client) CreateVoiceprintServermodeEx(request *CreateVoiceprintServermodeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateVoiceprintServermodeResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -13503,10 +14478,11 @@ func (client *Client) CreateVoiceprintServermodeEx(request *CreateVoiceprintServ
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端声纹比对
- * Summary: 纯服务端声纹比对
- */
+// Description:
+//
+// Description: 纯服务端声纹比对
+//
+// Summary: 纯服务端声纹比对
 func (client *Client) VerifyVoiceprintServermode(request *VerifyVoiceprintServermodeRequest) (_result *VerifyVoiceprintServermodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13519,10 +14495,11 @@ func (client *Client) VerifyVoiceprintServermode(request *VerifyVoiceprintServer
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端声纹比对
- * Summary: 纯服务端声纹比对
- */
+// Description:
+//
+// Description: 纯服务端声纹比对
+//
+// Summary: 纯服务端声纹比对
 func (client *Client) VerifyVoiceprintServermodeEx(request *VerifyVoiceprintServermodeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *VerifyVoiceprintServermodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13537,10 +14514,11 @@ func (client *Client) VerifyVoiceprintServermodeEx(request *VerifyVoiceprintServ
 	return _result, _err
 }
 
-/**
- * Description: 个人二要素认证（场景路由）
- * Summary: 个人二要素认证（场景路由）
- */
+// Description:
+//
+// Description: 个人二要素认证（场景路由）
+//
+// Summary: 个人二要素认证（场景路由）
 func (client *Client) CheckRouteTwometa(request *CheckRouteTwometaRequest) (_result *CheckRouteTwometaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13553,10 +14531,11 @@ func (client *Client) CheckRouteTwometa(request *CheckRouteTwometaRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 个人二要素认证（场景路由）
- * Summary: 个人二要素认证（场景路由）
- */
+// Description:
+//
+// Description: 个人二要素认证（场景路由）
+//
+// Summary: 个人二要素认证（场景路由）
 func (client *Client) CheckRouteTwometaEx(request *CheckRouteTwometaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckRouteTwometaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13571,10 +14550,11 @@ func (client *Client) CheckRouteTwometaEx(request *CheckRouteTwometaRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 通过移动设备身份临时标识查询该设备相关的设备风险信息的服务
- * Summary: 移动风险设备查询
- */
+// Description:
+//
+// Description: 通过移动设备身份临时标识查询该设备相关的设备风险信息的服务
+//
+// Summary: 移动风险设备查询
 func (client *Client) QueryMobileRisk(request *QueryMobileRiskRequest) (_result *QueryMobileRiskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13587,10 +14567,11 @@ func (client *Client) QueryMobileRisk(request *QueryMobileRiskRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 通过移动设备身份临时标识查询该设备相关的设备风险信息的服务
- * Summary: 移动风险设备查询
- */
+// Description:
+//
+// Description: 通过移动设备身份临时标识查询该设备相关的设备风险信息的服务
+//
+// Summary: 移动风险设备查询
 func (client *Client) QueryMobileRiskEx(request *QueryMobileRiskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryMobileRiskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13605,10 +14586,11 @@ func (client *Client) QueryMobileRiskEx(request *QueryMobileRiskRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 通过认证ID查询认证人、认证时间等相关信息，供智科内部使用
- * Summary: 查询认证人、认证时间等相关信息
- */
+// Description:
+//
+// Description: 通过认证ID查询认证人、认证时间等相关信息，供智科内部使用
+//
+// Summary: 查询认证人、认证时间等相关信息
 func (client *Client) DetailFacevrfServer(request *DetailFacevrfServerRequest) (_result *DetailFacevrfServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13621,10 +14603,11 @@ func (client *Client) DetailFacevrfServer(request *DetailFacevrfServerRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 通过认证ID查询认证人、认证时间等相关信息，供智科内部使用
- * Summary: 查询认证人、认证时间等相关信息
- */
+// Description:
+//
+// Description: 通过认证ID查询认证人、认证时间等相关信息，供智科内部使用
+//
+// Summary: 查询认证人、认证时间等相关信息
 func (client *Client) DetailFacevrfServerEx(request *DetailFacevrfServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DetailFacevrfServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13639,10 +14622,11 @@ func (client *Client) DetailFacevrfServerEx(request *DetailFacevrfServerRequest,
 	return _result, _err
 }
 
-/**
- * Description: 临工场景等场景下，通过主体的社保缴纳情况进行的反欺诈校验
- * Summary: 个人反欺诈风险校验
- */
+// Description:
+//
+// Description: 临工场景等场景下，通过主体的社保缴纳情况进行的反欺诈校验
+//
+// Summary: 个人反欺诈风险校验
 func (client *Client) CheckAnticheatPersonal(request *CheckAnticheatPersonalRequest) (_result *CheckAnticheatPersonalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13655,10 +14639,11 @@ func (client *Client) CheckAnticheatPersonal(request *CheckAnticheatPersonalRequ
 	return _result, _err
 }
 
-/**
- * Description: 临工场景等场景下，通过主体的社保缴纳情况进行的反欺诈校验
- * Summary: 个人反欺诈风险校验
- */
+// Description:
+//
+// Description: 临工场景等场景下，通过主体的社保缴纳情况进行的反欺诈校验
+//
+// Summary: 个人反欺诈风险校验
 func (client *Client) CheckAnticheatPersonalEx(request *CheckAnticheatPersonalRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckAnticheatPersonalResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13673,10 +14658,11 @@ func (client *Client) CheckAnticheatPersonalEx(request *CheckAnticheatPersonalRe
 	return _result, _err
 }
 
-/**
- * Description: 二要素支持hash主体信息
- * Summary: 个人二要素核验支持hash的主体信息
- */
+// Description:
+//
+// Description: 二要素支持hash主体信息
+//
+// Summary: 个人二要素核验支持hash的主体信息
 func (client *Client) CheckTwometaHash(request *CheckTwometaHashRequest) (_result *CheckTwometaHashResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13689,10 +14675,11 @@ func (client *Client) CheckTwometaHash(request *CheckTwometaHashRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 二要素支持hash主体信息
- * Summary: 个人二要素核验支持hash的主体信息
- */
+// Description:
+//
+// Description: 二要素支持hash主体信息
+//
+// Summary: 个人二要素核验支持hash的主体信息
 func (client *Client) CheckTwometaHashEx(request *CheckTwometaHashRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckTwometaHashResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13707,10 +14694,11 @@ func (client *Client) CheckTwometaHashEx(request *CheckTwometaHashRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 对接运营商等数据源查询手机号码的在网时长
- * Summary: 三要素在网时长查询接口
- */
+// Description:
+//
+// Description: 对接运营商等数据源查询手机号码的在网时长
+//
+// Summary: 三要素在网时长查询接口
 func (client *Client) QueryThreemetaOnlinetime(request *QueryThreemetaOnlinetimeRequest) (_result *QueryThreemetaOnlinetimeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13723,10 +14711,11 @@ func (client *Client) QueryThreemetaOnlinetime(request *QueryThreemetaOnlinetime
 	return _result, _err
 }
 
-/**
- * Description: 对接运营商等数据源查询手机号码的在网时长
- * Summary: 三要素在网时长查询接口
- */
+// Description:
+//
+// Description: 对接运营商等数据源查询手机号码的在网时长
+//
+// Summary: 三要素在网时长查询接口
 func (client *Client) QueryThreemetaOnlinetimeEx(request *QueryThreemetaOnlinetimeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryThreemetaOnlinetimeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13741,10 +14730,11 @@ func (client *Client) QueryThreemetaOnlinetimeEx(request *QueryThreemetaOnlineti
 	return _result, _err
 }
 
-/**
- * Description: 客户端初始化认证(OEM专用)
- * Summary: 客户端初始化认证(OEM专用)
- */
+// Description:
+//
+// Description: 客户端初始化认证(OEM专用)
+//
+// Summary: 客户端初始化认证(OEM专用)
 func (client *Client) InitFacevrfZim(request *InitFacevrfZimRequest) (_result *InitFacevrfZimResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13757,10 +14747,11 @@ func (client *Client) InitFacevrfZim(request *InitFacevrfZimRequest) (_result *I
 	return _result, _err
 }
 
-/**
- * Description: 客户端初始化认证(OEM专用)
- * Summary: 客户端初始化认证(OEM专用)
- */
+// Description:
+//
+// Description: 客户端初始化认证(OEM专用)
+//
+// Summary: 客户端初始化认证(OEM专用)
 func (client *Client) InitFacevrfZimEx(request *InitFacevrfZimRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *InitFacevrfZimResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13775,10 +14766,11 @@ func (client *Client) InitFacevrfZimEx(request *InitFacevrfZimRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 客户端人脸验证(OEM专用)
- * Summary: 客户端人脸验证(OEM专用)
- */
+// Description:
+//
+// Description: 客户端人脸验证(OEM专用)
+//
+// Summary: 客户端人脸验证(OEM专用)
 func (client *Client) VerifyFacevrfZim(request *VerifyFacevrfZimRequest) (_result *VerifyFacevrfZimResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13791,10 +14783,11 @@ func (client *Client) VerifyFacevrfZim(request *VerifyFacevrfZimRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 客户端人脸验证(OEM专用)
- * Summary: 客户端人脸验证(OEM专用)
- */
+// Description:
+//
+// Description: 客户端人脸验证(OEM专用)
+//
+// Summary: 客户端人脸验证(OEM专用)
 func (client *Client) VerifyFacevrfZimEx(request *VerifyFacevrfZimRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *VerifyFacevrfZimResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13809,10 +14802,11 @@ func (client *Client) VerifyFacevrfZimEx(request *VerifyFacevrfZimRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 卡证OCR
- * Summary: 卡证OCR
- */
+// Description:
+//
+// Description: 卡证OCR
+//
+// Summary: 卡证OCR
 func (client *Client) RecognizeDocIndividualcard(request *RecognizeDocIndividualcardRequest) (_result *RecognizeDocIndividualcardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13825,10 +14819,11 @@ func (client *Client) RecognizeDocIndividualcard(request *RecognizeDocIndividual
 	return _result, _err
 }
 
-/**
- * Description: 卡证OCR
- * Summary: 卡证OCR
- */
+// Description:
+//
+// Description: 卡证OCR
+//
+// Summary: 卡证OCR
 func (client *Client) RecognizeDocIndividualcardEx(request *RecognizeDocIndividualcardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RecognizeDocIndividualcardResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -13873,10 +14868,11 @@ func (client *Client) RecognizeDocIndividualcardEx(request *RecognizeDocIndividu
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡三要素
- * Summary: 个人银行卡三要素
- */
+// Description:
+//
+// Description: 个人银行卡三要素
+//
+// Summary: 个人银行卡三要素
 func (client *Client) CheckThreemetaBankcard(request *CheckThreemetaBankcardRequest) (_result *CheckThreemetaBankcardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13889,10 +14885,11 @@ func (client *Client) CheckThreemetaBankcard(request *CheckThreemetaBankcardRequ
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡三要素
- * Summary: 个人银行卡三要素
- */
+// Description:
+//
+// Description: 个人银行卡三要素
+//
+// Summary: 个人银行卡三要素
 func (client *Client) CheckThreemetaBankcardEx(request *CheckThreemetaBankcardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckThreemetaBankcardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13907,10 +14904,11 @@ func (client *Client) CheckThreemetaBankcardEx(request *CheckThreemetaBankcardRe
 	return _result, _err
 }
 
-/**
- * Description: deepsec终端安全风险标签查询
- * Summary: deepsec终端安全风险标签查询
- */
+// Description:
+//
+// Description: deepsec终端安全风险标签查询
+//
+// Summary: deepsec终端安全风险标签查询
 func (client *Client) QueryDeepsecRisk(request *QueryDeepsecRiskRequest) (_result *QueryDeepsecRiskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13923,10 +14921,11 @@ func (client *Client) QueryDeepsecRisk(request *QueryDeepsecRiskRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: deepsec终端安全风险标签查询
- * Summary: deepsec终端安全风险标签查询
- */
+// Description:
+//
+// Description: deepsec终端安全风险标签查询
+//
+// Summary: deepsec终端安全风险标签查询
 func (client *Client) QueryDeepsecRiskEx(request *QueryDeepsecRiskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDeepsecRiskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13941,10 +14940,11 @@ func (client *Client) QueryDeepsecRiskEx(request *QueryDeepsecRiskRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: deepsec终端安全api，用于apdid查询
- * Summary: tsbmrq设备id查询入口
- */
+// Description:
+//
+// Description: deepsec终端安全api，用于apdid查询
+//
+// Summary: tsbmrq设备id查询入口
 func (client *Client) QueryDeepsecTsbmrq(request *QueryDeepsecTsbmrqRequest) (_result *QueryDeepsecTsbmrqResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13957,10 +14957,11 @@ func (client *Client) QueryDeepsecTsbmrq(request *QueryDeepsecTsbmrqRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: deepsec终端安全api，用于apdid查询
- * Summary: tsbmrq设备id查询入口
- */
+// Description:
+//
+// Description: deepsec终端安全api，用于apdid查询
+//
+// Summary: tsbmrq设备id查询入口
 func (client *Client) QueryDeepsecTsbmrqEx(request *QueryDeepsecTsbmrqRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDeepsecTsbmrqResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13975,10 +14976,11 @@ func (client *Client) QueryDeepsecTsbmrqEx(request *QueryDeepsecTsbmrqRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 个人运营商二次放号
- * Summary: 个人运营商二次放号
- */
+// Description:
+//
+// Description: 个人运营商二次放号
+//
+// Summary: 个人运营商二次放号
 func (client *Client) QueryThreemetaPhonereuse(request *QueryThreemetaPhonereuseRequest) (_result *QueryThreemetaPhonereuseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -13991,10 +14993,11 @@ func (client *Client) QueryThreemetaPhonereuse(request *QueryThreemetaPhonereuse
 	return _result, _err
 }
 
-/**
- * Description: 个人运营商二次放号
- * Summary: 个人运营商二次放号
- */
+// Description:
+//
+// Description: 个人运营商二次放号
+//
+// Summary: 个人运营商二次放号
 func (client *Client) QueryThreemetaPhonereuseEx(request *QueryThreemetaPhonereuseRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryThreemetaPhonereuseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14009,10 +15012,11 @@ func (client *Client) QueryThreemetaPhonereuseEx(request *QueryThreemetaPhonereu
 	return _result, _err
 }
 
-/**
- * Description: 查询设备信息
- * Summary: 设备信息查询for蚁盾
- */
+// Description:
+//
+// Description: 查询设备信息
+//
+// Summary: 设备信息查询for蚁盾
 func (client *Client) QueryTscenterDevice(request *QueryTscenterDeviceRequest) (_result *QueryTscenterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14025,10 +15029,11 @@ func (client *Client) QueryTscenterDevice(request *QueryTscenterDeviceRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 查询设备信息
- * Summary: 设备信息查询for蚁盾
- */
+// Description:
+//
+// Description: 查询设备信息
+//
+// Summary: 设备信息查询for蚁盾
 func (client *Client) QueryTscenterDeviceEx(request *QueryTscenterDeviceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTscenterDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14043,10 +15048,11 @@ func (client *Client) QueryTscenterDeviceEx(request *QueryTscenterDeviceRequest,
 	return _result, _err
 }
 
-/**
- * Description: 学历验证
- * Summary: 学历验证
- */
+// Description:
+//
+// Description: 学历验证
+//
+// Summary: 学历验证
 func (client *Client) QueryEducationInfo(request *QueryEducationInfoRequest) (_result *QueryEducationInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14059,10 +15065,11 @@ func (client *Client) QueryEducationInfo(request *QueryEducationInfoRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 学历验证
- * Summary: 学历验证
- */
+// Description:
+//
+// Description: 学历验证
+//
+// Summary: 学历验证
 func (client *Client) QueryEducationInfoEx(request *QueryEducationInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryEducationInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14077,10 +15084,11 @@ func (client *Client) QueryEducationInfoEx(request *QueryEducationInfoRequest, h
 	return _result, _err
 }
 
-/**
- * Description: demo用记录查询
- * Summary: demo用记录查询
- */
+// Description:
+//
+// Description: demo用记录查询
+//
+// Summary: demo用记录查询
 func (client *Client) QueryDemoInfo(request *QueryDemoInfoRequest) (_result *QueryDemoInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14093,10 +15101,11 @@ func (client *Client) QueryDemoInfo(request *QueryDemoInfoRequest) (_result *Que
 	return _result, _err
 }
 
-/**
- * Description: demo用记录查询
- * Summary: demo用记录查询
- */
+// Description:
+//
+// Description: demo用记录查询
+//
+// Summary: demo用记录查询
 func (client *Client) QueryDemoInfoEx(request *QueryDemoInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryDemoInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14111,10 +15120,11 @@ func (client *Client) QueryDemoInfoEx(request *QueryDemoInfoRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡二要素
- * Summary: 个人银行卡二要素
- */
+// Description:
+//
+// Description: 个人银行卡二要素
+//
+// Summary: 个人银行卡二要素
 func (client *Client) CheckBankcardTwometa(request *CheckBankcardTwometaRequest) (_result *CheckBankcardTwometaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14127,10 +15137,11 @@ func (client *Client) CheckBankcardTwometa(request *CheckBankcardTwometaRequest)
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡二要素
- * Summary: 个人银行卡二要素
- */
+// Description:
+//
+// Description: 个人银行卡二要素
+//
+// Summary: 个人银行卡二要素
 func (client *Client) CheckBankcardTwometaEx(request *CheckBankcardTwometaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckBankcardTwometaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14145,10 +15156,11 @@ func (client *Client) CheckBankcardTwometaEx(request *CheckBankcardTwometaReques
 	return _result, _err
 }
 
-/**
- * Description: 个人运营商二要素
- * Summary: 个人运营商二要素
- */
+// Description:
+//
+// Description: 个人运营商二要素
+//
+// Summary: 个人运营商二要素
 func (client *Client) CheckCarrierTwometa(request *CheckCarrierTwometaRequest) (_result *CheckCarrierTwometaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14161,10 +15173,11 @@ func (client *Client) CheckCarrierTwometa(request *CheckCarrierTwometaRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 个人运营商二要素
- * Summary: 个人运营商二要素
- */
+// Description:
+//
+// Description: 个人运营商二要素
+//
+// Summary: 个人运营商二要素
 func (client *Client) CheckCarrierTwometaEx(request *CheckCarrierTwometaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckCarrierTwometaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14179,10 +15192,11 @@ func (client *Client) CheckCarrierTwometaEx(request *CheckCarrierTwometaRequest,
 	return _result, _err
 }
 
-/**
- * Description: NFC实证
- * Summary: NFC实证
- */
+// Description:
+//
+// Description: NFC实证
+//
+// Summary: NFC实证
 func (client *Client) CreateNfcServer(request *CreateNfcServerRequest) (_result *CreateNfcServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14195,10 +15209,11 @@ func (client *Client) CreateNfcServer(request *CreateNfcServerRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: NFC实证
- * Summary: NFC实证
- */
+// Description:
+//
+// Description: NFC实证
+//
+// Summary: NFC实证
 func (client *Client) CreateNfcServerEx(request *CreateNfcServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateNfcServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14213,10 +15228,11 @@ func (client *Client) CreateNfcServerEx(request *CreateNfcServerRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: NFC实证
- * Summary: NFC实证
- */
+// Description:
+//
+// Description: NFC实证
+//
+// Summary: NFC实证
 func (client *Client) QueryNfcServer(request *QueryNfcServerRequest) (_result *QueryNfcServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14229,10 +15245,11 @@ func (client *Client) QueryNfcServer(request *QueryNfcServerRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: NFC实证
- * Summary: NFC实证
- */
+// Description:
+//
+// Description: NFC实证
+//
+// Summary: NFC实证
 func (client *Client) QueryNfcServerEx(request *QueryNfcServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryNfcServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14247,10 +15264,11 @@ func (client *Client) QueryNfcServerEx(request *QueryNfcServerRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 社会安全风险
- * Summary: 社会安全风险
- */
+// Description:
+//
+// Description: 社会安全风险
+//
+// Summary: 社会安全风险
 func (client *Client) QuerySocialriskDetail(request *QuerySocialriskDetailRequest) (_result *QuerySocialriskDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14263,10 +15281,11 @@ func (client *Client) QuerySocialriskDetail(request *QuerySocialriskDetailReques
 	return _result, _err
 }
 
-/**
- * Description: 社会安全风险
- * Summary: 社会安全风险
- */
+// Description:
+//
+// Description: 社会安全风险
+//
+// Summary: 社会安全风险
 func (client *Client) QuerySocialriskDetailEx(request *QuerySocialriskDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySocialriskDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14281,10 +15300,11 @@ func (client *Client) QuerySocialriskDetailEx(request *QuerySocialriskDetailRequ
 	return _result, _err
 }
 
-/**
- * Description: 运营商在网状态查询
- * Summary: 运营商在网状态查询
- */
+// Description:
+//
+// Description: 运营商在网状态查询
+//
+// Summary: 运营商在网状态查询
 func (client *Client) QueryCarrierNetstatus(request *QueryCarrierNetstatusRequest) (_result *QueryCarrierNetstatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14297,10 +15317,11 @@ func (client *Client) QueryCarrierNetstatus(request *QueryCarrierNetstatusReques
 	return _result, _err
 }
 
-/**
- * Description: 运营商在网状态查询
- * Summary: 运营商在网状态查询
- */
+// Description:
+//
+// Description: 运营商在网状态查询
+//
+// Summary: 运营商在网状态查询
 func (client *Client) QueryCarrierNetstatusEx(request *QueryCarrierNetstatusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarrierNetstatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14315,10 +15336,11 @@ func (client *Client) QueryCarrierNetstatusEx(request *QueryCarrierNetstatusRequ
 	return _result, _err
 }
 
-/**
- * Description: 社会安全风险（简版）
- * Summary: 社会安全风险（简版）
- */
+// Description:
+//
+// Description: 社会安全风险（简版）
+//
+// Summary: 社会安全风险（简版）
 func (client *Client) QuerySocialriskBrief(request *QuerySocialriskBriefRequest) (_result *QuerySocialriskBriefResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14331,10 +15353,11 @@ func (client *Client) QuerySocialriskBrief(request *QuerySocialriskBriefRequest)
 	return _result, _err
 }
 
-/**
- * Description: 社会安全风险（简版）
- * Summary: 社会安全风险（简版）
- */
+// Description:
+//
+// Description: 社会安全风险（简版）
+//
+// Summary: 社会安全风险（简版）
 func (client *Client) QuerySocialriskBriefEx(request *QuerySocialriskBriefRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySocialriskBriefResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14349,10 +15372,11 @@ func (client *Client) QuerySocialriskBriefEx(request *QuerySocialriskBriefReques
 	return _result, _err
 }
 
-/**
- * Description: 社会安全风险（tob风控版）
- * Summary: 社会安全风险（tob风控版）
- */
+// Description:
+//
+// Description: 社会安全风险（tob风控版）
+//
+// Summary: 社会安全风险（tob风控版）
 func (client *Client) QuerySocialriskTobrisk(request *QuerySocialriskTobriskRequest) (_result *QuerySocialriskTobriskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14365,10 +15389,11 @@ func (client *Client) QuerySocialriskTobrisk(request *QuerySocialriskTobriskRequ
 	return _result, _err
 }
 
-/**
- * Description: 社会安全风险（tob风控版）
- * Summary: 社会安全风险（tob风控版）
- */
+// Description:
+//
+// Description: 社会安全风险（tob风控版）
+//
+// Summary: 社会安全风险（tob风控版）
 func (client *Client) QuerySocialriskTobriskEx(request *QuerySocialriskTobriskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySocialriskTobriskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14383,10 +15408,11 @@ func (client *Client) QuerySocialriskTobriskEx(request *QuerySocialriskTobriskRe
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
- * Summary: 纯服务端比对V2版本
- */
+// Description:
+//
+// Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
+//
+// Summary: 纯服务端比对V2版本
 func (client *Client) ExecFacevrfServermode(request *ExecFacevrfServermodeRequest) (_result *ExecFacevrfServermodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14399,10 +15425,11 @@ func (client *Client) ExecFacevrfServermode(request *ExecFacevrfServermodeReques
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
- * Summary: 纯服务端比对V2版本
- */
+// Description:
+//
+// Description: 纯服务端比对，直接输入待比对的图片，返回比对结果
+//
+// Summary: 纯服务端比对V2版本
 func (client *Client) ExecFacevrfServermodeEx(request *ExecFacevrfServermodeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecFacevrfServermodeResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -14447,10 +15474,11 @@ func (client *Client) ExecFacevrfServermodeEx(request *ExecFacevrfServermodeRequ
 	return _result, _err
 }
 
-/**
- * Description: 银行活跃度
- * Summary: 银行活跃度
- */
+// Description:
+//
+// Description: 银行活跃度
+//
+// Summary: 银行活跃度
 func (client *Client) QueryBankLiveness(request *QueryBankLivenessRequest) (_result *QueryBankLivenessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14463,10 +15491,11 @@ func (client *Client) QueryBankLiveness(request *QueryBankLivenessRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 银行活跃度
- * Summary: 银行活跃度
- */
+// Description:
+//
+// Description: 银行活跃度
+//
+// Summary: 银行活跃度
 func (client *Client) QueryBankLivenessEx(request *QueryBankLivenessRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBankLivenessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14481,10 +15510,11 @@ func (client *Client) QueryBankLivenessEx(request *QueryBankLivenessRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 用于阿里云渠道小程序域名的绑定
- * Summary: 新增场景与域名映射
- */
+// Description:
+//
+// Description: 用于阿里云渠道小程序域名的绑定
+//
+// Summary: 新增场景与域名映射
 func (client *Client) CreateConsoleDomain(request *CreateConsoleDomainRequest) (_result *CreateConsoleDomainResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14497,10 +15527,11 @@ func (client *Client) CreateConsoleDomain(request *CreateConsoleDomainRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 用于阿里云渠道小程序域名的绑定
- * Summary: 新增场景与域名映射
- */
+// Description:
+//
+// Description: 用于阿里云渠道小程序域名的绑定
+//
+// Summary: 新增场景与域名映射
 func (client *Client) CreateConsoleDomainEx(request *CreateConsoleDomainRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateConsoleDomainResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14515,10 +15546,11 @@ func (client *Client) CreateConsoleDomainEx(request *CreateConsoleDomainRequest,
 	return _result, _err
 }
 
-/**
- * Description: 阿里云控制台删除场景与域名映射
- * Summary: 删除场景与域名映射
- */
+// Description:
+//
+// Description: 阿里云控制台删除场景与域名映射
+//
+// Summary: 删除场景与域名映射
 func (client *Client) DeleteConsoleDomain(request *DeleteConsoleDomainRequest) (_result *DeleteConsoleDomainResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14531,10 +15563,11 @@ func (client *Client) DeleteConsoleDomain(request *DeleteConsoleDomainRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 阿里云控制台删除场景与域名映射
- * Summary: 删除场景与域名映射
- */
+// Description:
+//
+// Description: 阿里云控制台删除场景与域名映射
+//
+// Summary: 删除场景与域名映射
 func (client *Client) DeleteConsoleDomainEx(request *DeleteConsoleDomainRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DeleteConsoleDomainResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14549,10 +15582,11 @@ func (client *Client) DeleteConsoleDomainEx(request *DeleteConsoleDomainRequest,
 	return _result, _err
 }
 
-/**
- * Description: 失联修复初始化
- * Summary: 失联修复初始化
- */
+// Description:
+//
+// Description: 失联修复初始化
+//
+// Summary: 失联修复初始化
 func (client *Client) InitCarrierRepairmobile(request *InitCarrierRepairmobileRequest) (_result *InitCarrierRepairmobileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14565,10 +15599,11 @@ func (client *Client) InitCarrierRepairmobile(request *InitCarrierRepairmobileRe
 	return _result, _err
 }
 
-/**
- * Description: 失联修复初始化
- * Summary: 失联修复初始化
- */
+// Description:
+//
+// Description: 失联修复初始化
+//
+// Summary: 失联修复初始化
 func (client *Client) InitCarrierRepairmobileEx(request *InitCarrierRepairmobileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *InitCarrierRepairmobileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14583,10 +15618,11 @@ func (client *Client) InitCarrierRepairmobileEx(request *InitCarrierRepairmobile
 	return _result, _err
 }
 
-/**
- * Description: 失联修复查询修复结果
- * Summary: 失联修复查询修复结果
- */
+// Description:
+//
+// Description: 失联修复查询修复结果
+//
+// Summary: 失联修复查询修复结果
 func (client *Client) QueryCarrierRepairmobile(request *QueryCarrierRepairmobileRequest) (_result *QueryCarrierRepairmobileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14599,10 +15635,11 @@ func (client *Client) QueryCarrierRepairmobile(request *QueryCarrierRepairmobile
 	return _result, _err
 }
 
-/**
- * Description: 失联修复查询修复结果
- * Summary: 失联修复查询修复结果
- */
+// Description:
+//
+// Description: 失联修复查询修复结果
+//
+// Summary: 失联修复查询修复结果
 func (client *Client) QueryCarrierRepairmobileEx(request *QueryCarrierRepairmobileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarrierRepairmobileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14617,10 +15654,11 @@ func (client *Client) QueryCarrierRepairmobileEx(request *QueryCarrierRepairmobi
 	return _result, _err
 }
 
-/**
- * Description: 失联修复小号绑定
- * Summary: 失联修复小号绑定
- */
+// Description:
+//
+// Description: 失联修复小号绑定
+//
+// Summary: 失联修复小号绑定
 func (client *Client) BindCarrierRepairmobile(request *BindCarrierRepairmobileRequest) (_result *BindCarrierRepairmobileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14633,10 +15671,11 @@ func (client *Client) BindCarrierRepairmobile(request *BindCarrierRepairmobileRe
 	return _result, _err
 }
 
-/**
- * Description: 失联修复小号绑定
- * Summary: 失联修复小号绑定
- */
+// Description:
+//
+// Description: 失联修复小号绑定
+//
+// Summary: 失联修复小号绑定
 func (client *Client) BindCarrierRepairmobileEx(request *BindCarrierRepairmobileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindCarrierRepairmobileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14651,10 +15690,11 @@ func (client *Client) BindCarrierRepairmobileEx(request *BindCarrierRepairmobile
 	return _result, _err
 }
 
-/**
- * Description: 外部机构数据上报
- * Summary: 外部机构数据上报
- */
+// Description:
+//
+// Description: 外部机构数据上报
+//
+// Summary: 外部机构数据上报
 func (client *Client) ApplyExtOrgdata(request *ApplyExtOrgdataRequest) (_result *ApplyExtOrgdataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14667,10 +15707,11 @@ func (client *Client) ApplyExtOrgdata(request *ApplyExtOrgdataRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 外部机构数据上报
- * Summary: 外部机构数据上报
- */
+// Description:
+//
+// Description: 外部机构数据上报
+//
+// Summary: 外部机构数据上报
 func (client *Client) ApplyExtOrgdataEx(request *ApplyExtOrgdataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyExtOrgdataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14685,10 +15726,11 @@ func (client *Client) ApplyExtOrgdataEx(request *ApplyExtOrgdataRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 数科刷脸服务端初始化接口
- * Summary: 数科刷脸服务端初始化接口
- */
+// Description:
+//
+// Description: 数科刷脸服务端初始化接口
+//
+// Summary: 数科刷脸服务端初始化接口
 func (client *Client) CreateFaceverifyServer(request *CreateFaceverifyServerRequest) (_result *CreateFaceverifyServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14701,10 +15743,11 @@ func (client *Client) CreateFaceverifyServer(request *CreateFaceverifyServerRequ
 	return _result, _err
 }
 
-/**
- * Description: 数科刷脸服务端初始化接口
- * Summary: 数科刷脸服务端初始化接口
- */
+// Description:
+//
+// Description: 数科刷脸服务端初始化接口
+//
+// Summary: 数科刷脸服务端初始化接口
 func (client *Client) CreateFaceverifyServerEx(request *CreateFaceverifyServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateFaceverifyServerResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -14749,10 +15792,11 @@ func (client *Client) CreateFaceverifyServerEx(request *CreateFaceverifyServerRe
 	return _result, _err
 }
 
-/**
- * Description: 查询认证的结果和相关信息
- * Summary: 认证查询
- */
+// Description:
+//
+// Description: 查询认证的结果和相关信息
+//
+// Summary: 认证查询
 func (client *Client) QueryFaceverifyServer(request *QueryFaceverifyServerRequest) (_result *QueryFaceverifyServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14765,10 +15809,11 @@ func (client *Client) QueryFaceverifyServer(request *QueryFaceverifyServerReques
 	return _result, _err
 }
 
-/**
- * Description: 查询认证的结果和相关信息
- * Summary: 认证查询
- */
+// Description:
+//
+// Description: 查询认证的结果和相关信息
+//
+// Summary: 认证查询
 func (client *Client) QueryFaceverifyServerEx(request *QueryFaceverifyServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryFaceverifyServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14783,10 +15828,11 @@ func (client *Client) QueryFaceverifyServerEx(request *QueryFaceverifyServerRequ
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡状态增强版
- * Summary: 个人银行卡状态增强版
- */
+// Description:
+//
+// Description: 个人银行卡状态增强版
+//
+// Summary: 个人银行卡状态增强版
 func (client *Client) QueryBankLivenessplus(request *QueryBankLivenessplusRequest) (_result *QueryBankLivenessplusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14799,10 +15845,11 @@ func (client *Client) QueryBankLivenessplus(request *QueryBankLivenessplusReques
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡状态增强版
- * Summary: 个人银行卡状态增强版
- */
+// Description:
+//
+// Description: 个人银行卡状态增强版
+//
+// Summary: 个人银行卡状态增强版
 func (client *Client) QueryBankLivenessplusEx(request *QueryBankLivenessplusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBankLivenessplusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14817,10 +15864,11 @@ func (client *Client) QueryBankLivenessplusEx(request *QueryBankLivenessplusRequ
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端比对基础版本，直接输入待比对的图片，返回比对结果
- * Summary: 纯服务端比对基础版
- */
+// Description:
+//
+// Description: 纯服务端比对基础版本，直接输入待比对的图片，返回比对结果
+//
+// Summary: 纯服务端比对基础版
 func (client *Client) ExecFaceverifyServermode(request *ExecFaceverifyServermodeRequest) (_result *ExecFaceverifyServermodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14833,10 +15881,11 @@ func (client *Client) ExecFaceverifyServermode(request *ExecFaceverifyServermode
 	return _result, _err
 }
 
-/**
- * Description: 纯服务端比对基础版本，直接输入待比对的图片，返回比对结果
- * Summary: 纯服务端比对基础版
- */
+// Description:
+//
+// Description: 纯服务端比对基础版本，直接输入待比对的图片，返回比对结果
+//
+// Summary: 纯服务端比对基础版
 func (client *Client) ExecFaceverifyServermodeEx(request *ExecFaceverifyServermodeRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecFaceverifyServermodeResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -14881,10 +15930,11 @@ func (client *Client) ExecFaceverifyServermodeEx(request *ExecFaceverifyServermo
 	return _result, _err
 }
 
-/**
- * Description: 支付宝实人认证初始化接口
- * Summary: 支付宝实人认证初始化接口
- */
+// Description:
+//
+// Description: 支付宝实人认证初始化接口
+//
+// Summary: 支付宝实人认证初始化接口
 func (client *Client) CreateAlipayverifyServer(request *CreateAlipayverifyServerRequest) (_result *CreateAlipayverifyServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14897,10 +15947,11 @@ func (client *Client) CreateAlipayverifyServer(request *CreateAlipayverifyServer
 	return _result, _err
 }
 
-/**
- * Description: 支付宝实人认证初始化接口
- * Summary: 支付宝实人认证初始化接口
- */
+// Description:
+//
+// Description: 支付宝实人认证初始化接口
+//
+// Summary: 支付宝实人认证初始化接口
 func (client *Client) CreateAlipayverifyServerEx(request *CreateAlipayverifyServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateAlipayverifyServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14915,10 +15966,11 @@ func (client *Client) CreateAlipayverifyServerEx(request *CreateAlipayverifyServ
 	return _result, _err
 }
 
-/**
- * Description: 支付宝实人认证查询接口
- * Summary: 支付宝实人认证查询接口
- */
+// Description:
+//
+// Description: 支付宝实人认证查询接口
+//
+// Summary: 支付宝实人认证查询接口
 func (client *Client) QueryAlipayverifyServer(request *QueryAlipayverifyServerRequest) (_result *QueryAlipayverifyServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14931,10 +15983,11 @@ func (client *Client) QueryAlipayverifyServer(request *QueryAlipayverifyServerRe
 	return _result, _err
 }
 
-/**
- * Description: 支付宝实人认证查询接口
- * Summary: 支付宝实人认证查询接口
- */
+// Description:
+//
+// Description: 支付宝实人认证查询接口
+//
+// Summary: 支付宝实人认证查询接口
 func (client *Client) QueryAlipayverifyServerEx(request *QueryAlipayverifyServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryAlipayverifyServerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14949,10 +16002,11 @@ func (client *Client) QueryAlipayverifyServerEx(request *QueryAlipayverifyServer
 	return _result, _err
 }
 
-/**
- * Description: 车辆资产验证
- * Summary: 车辆资产验证
- */
+// Description:
+//
+// Description: 车辆资产验证
+//
+// Summary: 车辆资产验证
 func (client *Client) CheckCarTwometa(request *CheckCarTwometaRequest) (_result *CheckCarTwometaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14965,10 +16019,11 @@ func (client *Client) CheckCarTwometa(request *CheckCarTwometaRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 车辆资产验证
- * Summary: 车辆资产验证
- */
+// Description:
+//
+// Description: 车辆资产验证
+//
+// Summary: 车辆资产验证
 func (client *Client) CheckCarTwometaEx(request *CheckCarTwometaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckCarTwometaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14983,10 +16038,11 @@ func (client *Client) CheckCarTwometaEx(request *CheckCarTwometaRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 学历验证
- * Summary: 学历验证
- */
+// Description:
+//
+// Description: 学历验证
+//
+// Summary: 学历验证
 func (client *Client) QueryEducationBackground(request *QueryEducationBackgroundRequest) (_result *QueryEducationBackgroundResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -14999,10 +16055,11 @@ func (client *Client) QueryEducationBackground(request *QueryEducationBackground
 	return _result, _err
 }
 
-/**
- * Description: 学历验证
- * Summary: 学历验证
- */
+// Description:
+//
+// Description: 学历验证
+//
+// Summary: 学历验证
 func (client *Client) QueryEducationBackgroundEx(request *QueryEducationBackgroundRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryEducationBackgroundResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15017,10 +16074,11 @@ func (client *Client) QueryEducationBackgroundEx(request *QueryEducationBackgrou
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡状态验证 V4.0
- * Summary: 个人银行卡状态验证 V4.0
- */
+// Description:
+//
+// Description: 个人银行卡状态验证 V4.0
+//
+// Summary: 个人银行卡状态验证 V4.0
 func (client *Client) QueryBankLivenessfour(request *QueryBankLivenessfourRequest) (_result *QueryBankLivenessfourResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15033,10 +16091,11 @@ func (client *Client) QueryBankLivenessfour(request *QueryBankLivenessfourReques
 	return _result, _err
 }
 
-/**
- * Description: 个人银行卡状态验证 V4.0
- * Summary: 个人银行卡状态验证 V4.0
- */
+// Description:
+//
+// Description: 个人银行卡状态验证 V4.0
+//
+// Summary: 个人银行卡状态验证 V4.0
 func (client *Client) QueryBankLivenessfourEx(request *QueryBankLivenessfourRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBankLivenessfourResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15051,10 +16110,11 @@ func (client *Client) QueryBankLivenessfourEx(request *QueryBankLivenessfourRequ
 	return _result, _err
 }
 
-/**
- * Description: 查询认证的材料信息
- * Summary: 认证材料查询
- */
+// Description:
+//
+// Description: 查询认证的材料信息
+//
+// Summary: 认证材料查询
 func (client *Client) QueryFaceverifyServermaterial(request *QueryFaceverifyServermaterialRequest) (_result *QueryFaceverifyServermaterialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15067,10 +16127,11 @@ func (client *Client) QueryFaceverifyServermaterial(request *QueryFaceverifyServ
 	return _result, _err
 }
 
-/**
- * Description: 查询认证的材料信息
- * Summary: 认证材料查询
- */
+// Description:
+//
+// Description: 查询认证的材料信息
+//
+// Summary: 认证材料查询
 func (client *Client) QueryFaceverifyServermaterialEx(request *QueryFaceverifyServermaterialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryFaceverifyServermaterialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15085,10 +16146,11 @@ func (client *Client) QueryFaceverifyServermaterialEx(request *QueryFaceverifySe
 	return _result, _err
 }
 
-/**
- * Description: 图片压缩接口
- * Summary: 图片压缩接口
- */
+// Description:
+//
+// Description: 图片压缩接口
+//
+// Summary: 图片压缩接口
 func (client *Client) ScaleinImage(request *ScaleinImageRequest) (_result *ScaleinImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15101,10 +16163,11 @@ func (client *Client) ScaleinImage(request *ScaleinImageRequest) (_result *Scale
 	return _result, _err
 }
 
-/**
- * Description: 图片压缩接口
- * Summary: 图片压缩接口
- */
+// Description:
+//
+// Description: 图片压缩接口
+//
+// Summary: 图片压缩接口
 func (client *Client) ScaleinImageEx(request *ScaleinImageRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ScaleinImageResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -15149,10 +16212,11 @@ func (client *Client) ScaleinImageEx(request *ScaleinImageRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 要素卡证OCR
- * Summary: 要素卡证OCR
- */
+// Description:
+//
+// Description: 要素卡证OCR
+//
+// Summary: 要素卡证OCR
 func (client *Client) RecognizeOcrIndividualcard(request *RecognizeOcrIndividualcardRequest) (_result *RecognizeOcrIndividualcardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15165,10 +16229,11 @@ func (client *Client) RecognizeOcrIndividualcard(request *RecognizeOcrIndividual
 	return _result, _err
 }
 
-/**
- * Description: 要素卡证OCR
- * Summary: 要素卡证OCR
- */
+// Description:
+//
+// Description: 要素卡证OCR
+//
+// Summary: 要素卡证OCR
 func (client *Client) RecognizeOcrIndividualcardEx(request *RecognizeOcrIndividualcardRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RecognizeOcrIndividualcardResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -15213,10 +16278,11 @@ func (client *Client) RecognizeOcrIndividualcardEx(request *RecognizeOcrIndividu
 	return _result, _err
 }
 
-/**
- * Description: 个人四要素认证
- * Summary: 个人四要素认证
- */
+// Description:
+//
+// Description: 个人四要素认证
+//
+// Summary: 个人四要素认证
 func (client *Client) CheckIdcardFourmeta(request *CheckIdcardFourmetaRequest) (_result *CheckIdcardFourmetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15229,10 +16295,11 @@ func (client *Client) CheckIdcardFourmeta(request *CheckIdcardFourmetaRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 个人四要素认证
- * Summary: 个人四要素认证
- */
+// Description:
+//
+// Description: 个人四要素认证
+//
+// Summary: 个人四要素认证
 func (client *Client) CheckIdcardFourmetaEx(request *CheckIdcardFourmetaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckIdcardFourmetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15247,10 +16314,11 @@ func (client *Client) CheckIdcardFourmetaEx(request *CheckIdcardFourmetaRequest,
 	return _result, _err
 }
 
-/**
- * Description: 车辆资产验证详版
- * Summary: 车辆资产验证详版
- */
+// Description:
+//
+// Description: 车辆资产验证详版
+//
+// Summary: 车辆资产验证详版
 func (client *Client) QueryCarinfoDetail(request *QueryCarinfoDetailRequest) (_result *QueryCarinfoDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15263,10 +16331,11 @@ func (client *Client) QueryCarinfoDetail(request *QueryCarinfoDetailRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 车辆资产验证详版
- * Summary: 车辆资产验证详版
- */
+// Description:
+//
+// Description: 车辆资产验证详版
+//
+// Summary: 车辆资产验证详版
 func (client *Client) QueryCarinfoDetailEx(request *QueryCarinfoDetailRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarinfoDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15281,10 +16350,11 @@ func (client *Client) QueryCarinfoDetailEx(request *QueryCarinfoDetailRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 车辆资产验证简版
- * Summary: 车辆资产验证简版
- */
+// Description:
+//
+// Description: 车辆资产验证简版
+//
+// Summary: 车辆资产验证简版
 func (client *Client) QueryCarinfoBrief(request *QueryCarinfoBriefRequest) (_result *QueryCarinfoBriefResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15297,10 +16367,11 @@ func (client *Client) QueryCarinfoBrief(request *QueryCarinfoBriefRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 车辆资产验证简版
- * Summary: 车辆资产验证简版
- */
+// Description:
+//
+// Description: 车辆资产验证简版
+//
+// Summary: 车辆资产验证简版
 func (client *Client) QueryCarinfoBriefEx(request *QueryCarinfoBriefRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarinfoBriefResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15315,10 +16386,11 @@ func (client *Client) QueryCarinfoBriefEx(request *QueryCarinfoBriefRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣预绑定
- * Summary: 银行卡代扣预绑定
- */
+// Description:
+//
+// Description: 银行卡代扣预绑定
+//
+// Summary: 银行卡代扣预绑定
 func (client *Client) BindCutpaymentPre(request *BindCutpaymentPreRequest) (_result *BindCutpaymentPreResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15331,10 +16403,11 @@ func (client *Client) BindCutpaymentPre(request *BindCutpaymentPreRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣预绑定
- * Summary: 银行卡代扣预绑定
- */
+// Description:
+//
+// Description: 银行卡代扣预绑定
+//
+// Summary: 银行卡代扣预绑定
 func (client *Client) BindCutpaymentPreEx(request *BindCutpaymentPreRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindCutpaymentPreResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15349,10 +16422,11 @@ func (client *Client) BindCutpaymentPreEx(request *BindCutpaymentPreRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣绑卡签约
- * Summary: 银行卡代扣绑卡签约
- */
+// Description:
+//
+// Description: 银行卡代扣绑卡签约
+//
+// Summary: 银行卡代扣绑卡签约
 func (client *Client) BindCutpaymentSign(request *BindCutpaymentSignRequest) (_result *BindCutpaymentSignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15365,10 +16439,11 @@ func (client *Client) BindCutpaymentSign(request *BindCutpaymentSignRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣绑卡签约
- * Summary: 银行卡代扣绑卡签约
- */
+// Description:
+//
+// Description: 银行卡代扣绑卡签约
+//
+// Summary: 银行卡代扣绑卡签约
 func (client *Client) BindCutpaymentSignEx(request *BindCutpaymentSignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindCutpaymentSignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15383,10 +16458,11 @@ func (client *Client) BindCutpaymentSignEx(request *BindCutpaymentSignRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣解绑
- * Summary: 银行卡代扣解绑
- */
+// Description:
+//
+// Description: 银行卡代扣解绑
+//
+// Summary: 银行卡代扣解绑
 func (client *Client) UnbindCutpaymentSign(request *UnbindCutpaymentSignRequest) (_result *UnbindCutpaymentSignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15399,10 +16475,11 @@ func (client *Client) UnbindCutpaymentSign(request *UnbindCutpaymentSignRequest)
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣解绑
- * Summary: 银行卡代扣解绑
- */
+// Description:
+//
+// Description: 银行卡代扣解绑
+//
+// Summary: 银行卡代扣解绑
 func (client *Client) UnbindCutpaymentSignEx(request *UnbindCutpaymentSignRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UnbindCutpaymentSignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15417,10 +16494,11 @@ func (client *Client) UnbindCutpaymentSignEx(request *UnbindCutpaymentSignReques
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣绑定结果查询
- * Summary: 银行卡代扣绑定结果查询
- */
+// Description:
+//
+// Description: 银行卡代扣绑定结果查询
+//
+// Summary: 银行卡代扣绑定结果查询
 func (client *Client) QueryCutpaymentBind(request *QueryCutpaymentBindRequest) (_result *QueryCutpaymentBindResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15433,10 +16511,11 @@ func (client *Client) QueryCutpaymentBind(request *QueryCutpaymentBindRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣绑定结果查询
- * Summary: 银行卡代扣绑定结果查询
- */
+// Description:
+//
+// Description: 银行卡代扣绑定结果查询
+//
+// Summary: 银行卡代扣绑定结果查询
 func (client *Client) QueryCutpaymentBindEx(request *QueryCutpaymentBindRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentBindResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15451,10 +16530,11 @@ func (client *Client) QueryCutpaymentBindEx(request *QueryCutpaymentBindRequest,
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣支付分账扣款
- * Summary: 银行卡代扣支付分账扣款
- */
+// Description:
+//
+// Description: 银行卡代扣支付分账扣款
+//
+// Summary: 银行卡代扣支付分账扣款
 func (client *Client) ApplyCutpaymentPayment(request *ApplyCutpaymentPaymentRequest) (_result *ApplyCutpaymentPaymentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15467,10 +16547,11 @@ func (client *Client) ApplyCutpaymentPayment(request *ApplyCutpaymentPaymentRequ
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣支付分账扣款
- * Summary: 银行卡代扣支付分账扣款
- */
+// Description:
+//
+// Description: 银行卡代扣支付分账扣款
+//
+// Summary: 银行卡代扣支付分账扣款
 func (client *Client) ApplyCutpaymentPaymentEx(request *ApplyCutpaymentPaymentRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyCutpaymentPaymentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15485,10 +16566,11 @@ func (client *Client) ApplyCutpaymentPaymentEx(request *ApplyCutpaymentPaymentRe
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣支付分账查询
- * Summary: 银行卡代扣支付分账查询
- */
+// Description:
+//
+// Description: 银行卡代扣支付分账查询
+//
+// Summary: 银行卡代扣支付分账查询
 func (client *Client) QueryCutpaymentPayment(request *QueryCutpaymentPaymentRequest) (_result *QueryCutpaymentPaymentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15501,10 +16583,11 @@ func (client *Client) QueryCutpaymentPayment(request *QueryCutpaymentPaymentRequ
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣支付分账查询
- * Summary: 银行卡代扣支付分账查询
- */
+// Description:
+//
+// Description: 银行卡代扣支付分账查询
+//
+// Summary: 银行卡代扣支付分账查询
 func (client *Client) QueryCutpaymentPaymentEx(request *QueryCutpaymentPaymentRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentPaymentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15519,10 +16602,11 @@ func (client *Client) QueryCutpaymentPaymentEx(request *QueryCutpaymentPaymentRe
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣退款申请
- * Summary: 银行卡代扣退款申请
- */
+// Description:
+//
+// Description: 银行卡代扣退款申请
+//
+// Summary: 银行卡代扣退款申请
 func (client *Client) ApplyCutpaymentRefund(request *ApplyCutpaymentRefundRequest) (_result *ApplyCutpaymentRefundResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15535,10 +16619,11 @@ func (client *Client) ApplyCutpaymentRefund(request *ApplyCutpaymentRefundReques
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣退款申请
- * Summary: 银行卡代扣退款申请
- */
+// Description:
+//
+// Description: 银行卡代扣退款申请
+//
+// Summary: 银行卡代扣退款申请
 func (client *Client) ApplyCutpaymentRefundEx(request *ApplyCutpaymentRefundRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyCutpaymentRefundResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15553,10 +16638,11 @@ func (client *Client) ApplyCutpaymentRefundEx(request *ApplyCutpaymentRefundRequ
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣退款查询
- * Summary: 银行卡代扣退款查询
- */
+// Description:
+//
+// Description: 银行卡代扣退款查询
+//
+// Summary: 银行卡代扣退款查询
 func (client *Client) QueryCutpaymentRefund(request *QueryCutpaymentRefundRequest) (_result *QueryCutpaymentRefundResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15569,10 +16655,11 @@ func (client *Client) QueryCutpaymentRefund(request *QueryCutpaymentRefundReques
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣退款查询
- * Summary: 银行卡代扣退款查询
- */
+// Description:
+//
+// Description: 银行卡代扣退款查询
+//
+// Summary: 银行卡代扣退款查询
 func (client *Client) QueryCutpaymentRefundEx(request *QueryCutpaymentRefundRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentRefundResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15587,10 +16674,11 @@ func (client *Client) QueryCutpaymentRefundEx(request *QueryCutpaymentRefundRequ
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣对账
- * Summary: 银行卡代扣对账
- */
+// Description:
+//
+// Description: 银行卡代扣对账
+//
+// Summary: 银行卡代扣对账
 func (client *Client) QueryCutpaymentStatement(request *QueryCutpaymentStatementRequest) (_result *QueryCutpaymentStatementResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15603,10 +16691,11 @@ func (client *Client) QueryCutpaymentStatement(request *QueryCutpaymentStatement
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣对账
- * Summary: 银行卡代扣对账
- */
+// Description:
+//
+// Description: 银行卡代扣对账
+//
+// Summary: 银行卡代扣对账
 func (client *Client) QueryCutpaymentStatementEx(request *QueryCutpaymentStatementRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentStatementResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15621,10 +16710,11 @@ func (client *Client) QueryCutpaymentStatementEx(request *QueryCutpaymentStateme
 	return _result, _err
 }
 
-/**
- * Description: 人像、证件号、姓名比对接口
- * Summary: 人像、证件号、姓名比对
- */
+// Description:
+//
+// Description: 人像、证件号、姓名比对接口
+//
+// Summary: 人像、证件号、姓名比对
 func (client *Client) ExecFaceThreemeta(request *ExecFaceThreemetaRequest) (_result *ExecFaceThreemetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15637,10 +16727,11 @@ func (client *Client) ExecFaceThreemeta(request *ExecFaceThreemetaRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 人像、证件号、姓名比对接口
- * Summary: 人像、证件号、姓名比对
- */
+// Description:
+//
+// Description: 人像、证件号、姓名比对接口
+//
+// Summary: 人像、证件号、姓名比对
 func (client *Client) ExecFaceThreemetaEx(request *ExecFaceThreemetaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecFaceThreemetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15655,10 +16746,11 @@ func (client *Client) ExecFaceThreemetaEx(request *ExecFaceThreemetaRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 用户资产验证-车辆资产验证旗舰版
- * Summary: 用户资产验证-车辆资产验证旗舰版
- */
+// Description:
+//
+// Description: 用户资产验证-车辆资产验证旗舰版
+//
+// Summary: 用户资产验证-车辆资产验证旗舰版
 func (client *Client) QueryCarinfoUltimate(request *QueryCarinfoUltimateRequest) (_result *QueryCarinfoUltimateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15671,10 +16763,11 @@ func (client *Client) QueryCarinfoUltimate(request *QueryCarinfoUltimateRequest)
 	return _result, _err
 }
 
-/**
- * Description: 用户资产验证-车辆资产验证旗舰版
- * Summary: 用户资产验证-车辆资产验证旗舰版
- */
+// Description:
+//
+// Description: 用户资产验证-车辆资产验证旗舰版
+//
+// Summary: 用户资产验证-车辆资产验证旗舰版
 func (client *Client) QueryCarinfoUltimateEx(request *QueryCarinfoUltimateRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarinfoUltimateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15689,10 +16782,11 @@ func (client *Client) QueryCarinfoUltimateEx(request *QueryCarinfoUltimateReques
 	return _result, _err
 }
 
-/**
- * Description: 用户资产验证-车辆资产验证增强版
- * Summary: 用户资产验证-车辆资产验证增强版
- */
+// Description:
+//
+// Description: 用户资产验证-车辆资产验证增强版
+//
+// Summary: 用户资产验证-车辆资产验证增强版
 func (client *Client) QueryCarinfoPlus(request *QueryCarinfoPlusRequest) (_result *QueryCarinfoPlusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15705,10 +16799,11 @@ func (client *Client) QueryCarinfoPlus(request *QueryCarinfoPlusRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 用户资产验证-车辆资产验证增强版
- * Summary: 用户资产验证-车辆资产验证增强版
- */
+// Description:
+//
+// Description: 用户资产验证-车辆资产验证增强版
+//
+// Summary: 用户资产验证-车辆资产验证增强版
 func (client *Client) QueryCarinfoPlusEx(request *QueryCarinfoPlusRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarinfoPlusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15723,10 +16818,11 @@ func (client *Client) QueryCarinfoPlusEx(request *QueryCarinfoPlusRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户开户
- * Summary: 银行卡代扣二级租户开户
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户开户
+//
+// Summary: 银行卡代扣二级租户开户
 func (client *Client) OpenCutpaymentsubAccount(request *OpenCutpaymentsubAccountRequest) (_result *OpenCutpaymentsubAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15739,10 +16835,11 @@ func (client *Client) OpenCutpaymentsubAccount(request *OpenCutpaymentsubAccount
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户开户
- * Summary: 银行卡代扣二级租户开户
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户开户
+//
+// Summary: 银行卡代扣二级租户开户
 func (client *Client) OpenCutpaymentsubAccountEx(request *OpenCutpaymentsubAccountRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *OpenCutpaymentsubAccountResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15757,10 +16854,11 @@ func (client *Client) OpenCutpaymentsubAccountEx(request *OpenCutpaymentsubAccou
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询开户状态
- * Summary: 银行卡代扣二级租户查询开户状态
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询开户状态
+//
+// Summary: 银行卡代扣二级租户查询开户状态
 func (client *Client) QueryCutpaymentsubAccount(request *QueryCutpaymentsubAccountRequest) (_result *QueryCutpaymentsubAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15773,10 +16871,11 @@ func (client *Client) QueryCutpaymentsubAccount(request *QueryCutpaymentsubAccou
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询开户状态
- * Summary: 银行卡代扣二级租户查询开户状态
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询开户状态
+//
+// Summary: 银行卡代扣二级租户查询开户状态
 func (client *Client) QueryCutpaymentsubAccountEx(request *QueryCutpaymentsubAccountRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentsubAccountResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15791,10 +16890,11 @@ func (client *Client) QueryCutpaymentsubAccountEx(request *QueryCutpaymentsubAcc
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户分账
- * Summary: 银行卡代扣二级租户分账
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户分账
+//
+// Summary: 银行卡代扣二级租户分账
 func (client *Client) TransferCutpaymentsubRevenue(request *TransferCutpaymentsubRevenueRequest) (_result *TransferCutpaymentsubRevenueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15807,10 +16907,11 @@ func (client *Client) TransferCutpaymentsubRevenue(request *TransferCutpaymentsu
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户分账
- * Summary: 银行卡代扣二级租户分账
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户分账
+//
+// Summary: 银行卡代扣二级租户分账
 func (client *Client) TransferCutpaymentsubRevenueEx(request *TransferCutpaymentsubRevenueRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *TransferCutpaymentsubRevenueResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15825,10 +16926,11 @@ func (client *Client) TransferCutpaymentsubRevenueEx(request *TransferCutpayment
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询分账
- * Summary: 银行卡代扣二级租户查询分账
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询分账
+//
+// Summary: 银行卡代扣二级租户查询分账
 func (client *Client) QueryCutpaymentsubRevenue(request *QueryCutpaymentsubRevenueRequest) (_result *QueryCutpaymentsubRevenueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15841,10 +16943,11 @@ func (client *Client) QueryCutpaymentsubRevenue(request *QueryCutpaymentsubReven
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询分账
- * Summary: 银行卡代扣二级租户查询分账
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询分账
+//
+// Summary: 银行卡代扣二级租户查询分账
 func (client *Client) QueryCutpaymentsubRevenueEx(request *QueryCutpaymentsubRevenueRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentsubRevenueResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15859,10 +16962,11 @@ func (client *Client) QueryCutpaymentsubRevenueEx(request *QueryCutpaymentsubRev
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户提现
- * Summary: 银行卡代扣二级租户提现
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户提现
+//
+// Summary: 银行卡代扣二级租户提现
 func (client *Client) CaptureCutpaymentsubWithdrawal(request *CaptureCutpaymentsubWithdrawalRequest) (_result *CaptureCutpaymentsubWithdrawalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15875,10 +16979,11 @@ func (client *Client) CaptureCutpaymentsubWithdrawal(request *CaptureCutpayments
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户提现
- * Summary: 银行卡代扣二级租户提现
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户提现
+//
+// Summary: 银行卡代扣二级租户提现
 func (client *Client) CaptureCutpaymentsubWithdrawalEx(request *CaptureCutpaymentsubWithdrawalRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CaptureCutpaymentsubWithdrawalResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15893,10 +16998,11 @@ func (client *Client) CaptureCutpaymentsubWithdrawalEx(request *CaptureCutpaymen
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户提现查询
- * Summary: 银行卡代扣二级租户提现查询
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户提现查询
+//
+// Summary: 银行卡代扣二级租户提现查询
 func (client *Client) QueryCutpaymentsubWithdrawal(request *QueryCutpaymentsubWithdrawalRequest) (_result *QueryCutpaymentsubWithdrawalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15909,10 +17015,11 @@ func (client *Client) QueryCutpaymentsubWithdrawal(request *QueryCutpaymentsubWi
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户提现查询
- * Summary: 银行卡代扣二级租户提现查询
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户提现查询
+//
+// Summary: 银行卡代扣二级租户提现查询
 func (client *Client) QueryCutpaymentsubWithdrawalEx(request *QueryCutpaymentsubWithdrawalRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentsubWithdrawalResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15927,10 +17034,11 @@ func (client *Client) QueryCutpaymentsubWithdrawalEx(request *QueryCutpaymentsub
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询余额
- * Summary: 银行卡代扣二级租户查询余额
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询余额
+//
+// Summary: 银行卡代扣二级租户查询余额
 func (client *Client) QueryCutpaymentsubBalance(request *QueryCutpaymentsubBalanceRequest) (_result *QueryCutpaymentsubBalanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15943,10 +17051,11 @@ func (client *Client) QueryCutpaymentsubBalance(request *QueryCutpaymentsubBalan
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询余额
- * Summary: 银行卡代扣二级租户查询余额
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询余额
+//
+// Summary: 银行卡代扣二级租户查询余额
 func (client *Client) QueryCutpaymentsubBalanceEx(request *QueryCutpaymentsubBalanceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentsubBalanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15961,10 +17070,11 @@ func (client *Client) QueryCutpaymentsubBalanceEx(request *QueryCutpaymentsubBal
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询收支明细
- * Summary: 银行卡代扣二级租户查询收支明细
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询收支明细
+//
+// Summary: 银行卡代扣二级租户查询收支明细
 func (client *Client) QueryCutpaymentsubTransaction(request *QueryCutpaymentsubTransactionRequest) (_result *QueryCutpaymentsubTransactionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15977,10 +17087,11 @@ func (client *Client) QueryCutpaymentsubTransaction(request *QueryCutpaymentsubT
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣二级租户查询收支明细
- * Summary: 银行卡代扣二级租户查询收支明细
- */
+// Description:
+//
+// Description: 银行卡代扣二级租户查询收支明细
+//
+// Summary: 银行卡代扣二级租户查询收支明细
 func (client *Client) QueryCutpaymentsubTransactionEx(request *QueryCutpaymentsubTransactionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentsubTransactionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15995,10 +17106,11 @@ func (client *Client) QueryCutpaymentsubTransactionEx(request *QueryCutpaymentsu
 	return _result, _err
 }
 
-/**
- * Description: 提供私有化刷脸的风险咨询
- * Summary: 人脸风险咨询服务
- */
+// Description:
+//
+// Description: 提供私有化刷脸的风险咨询
+//
+// Summary: 人脸风险咨询服务
 func (client *Client) QueryRiskServer(request *QueryRiskServerRequest) (_result *QueryRiskServerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16011,10 +17123,11 @@ func (client *Client) QueryRiskServer(request *QueryRiskServerRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 提供私有化刷脸的风险咨询
- * Summary: 人脸风险咨询服务
- */
+// Description:
+//
+// Description: 提供私有化刷脸的风险咨询
+//
+// Summary: 人脸风险咨询服务
 func (client *Client) QueryRiskServerEx(request *QueryRiskServerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRiskServerResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -16059,10 +17172,11 @@ func (client *Client) QueryRiskServerEx(request *QueryRiskServerRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 用户资产验证
- * Summary: 用户资产验证
- */
+// Description:
+//
+// Description: 用户资产验证
+//
+// Summary: 用户资产验证
 func (client *Client) QueryUserAsset(request *QueryUserAssetRequest) (_result *QueryUserAssetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16075,10 +17189,11 @@ func (client *Client) QueryUserAsset(request *QueryUserAssetRequest) (_result *Q
 	return _result, _err
 }
 
-/**
- * Description: 用户资产验证
- * Summary: 用户资产验证
- */
+// Description:
+//
+// Description: 用户资产验证
+//
+// Summary: 用户资产验证
 func (client *Client) QueryUserAssetEx(request *QueryUserAssetRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUserAssetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16093,10 +17208,11 @@ func (client *Client) QueryUserAssetEx(request *QueryUserAssetRequest, headers m
 	return _result, _err
 }
 
-/**
- * Description: 文件上传接口
- * Summary: 文件上传接口
- */
+// Description:
+//
+// Description: 文件上传接口
+//
+// Summary: 文件上传接口
 func (client *Client) UploadFile(request *UploadFileRequest) (_result *UploadFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16109,10 +17225,11 @@ func (client *Client) UploadFile(request *UploadFileRequest) (_result *UploadFil
 	return _result, _err
 }
 
-/**
- * Description: 文件上传接口
- * Summary: 文件上传接口
- */
+// Description:
+//
+// Description: 文件上传接口
+//
+// Summary: 文件上传接口
 func (client *Client) UploadFileEx(request *UploadFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *UploadFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -16157,10 +17274,11 @@ func (client *Client) UploadFileEx(request *UploadFileRequest, headers map[strin
 	return _result, _err
 }
 
-/**
- * Description: 用户身份核验
- * Summary: 用户身份核验
- */
+// Description:
+//
+// Description: 用户身份核验
+//
+// Summary: 用户身份核验
 func (client *Client) QueryRiderQualification(request *QueryRiderQualificationRequest) (_result *QueryRiderQualificationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16173,10 +17291,11 @@ func (client *Client) QueryRiderQualification(request *QueryRiderQualificationRe
 	return _result, _err
 }
 
-/**
- * Description: 用户身份核验
- * Summary: 用户身份核验
- */
+// Description:
+//
+// Description: 用户身份核验
+//
+// Summary: 用户身份核验
 func (client *Client) QueryRiderQualificationEx(request *QueryRiderQualificationRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryRiderQualificationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16191,10 +17310,11 @@ func (client *Client) QueryRiderQualificationEx(request *QueryRiderQualification
 	return _result, _err
 }
 
-/**
- * Description: 用户车辆资产验证
- * Summary: 用户车辆资产验证
- */
+// Description:
+//
+// Description: 用户车辆资产验证
+//
+// Summary: 用户车辆资产验证
 func (client *Client) VerificationUserVehicle(request *VerificationUserVehicleRequest) (_result *VerificationUserVehicleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16207,10 +17327,11 @@ func (client *Client) VerificationUserVehicle(request *VerificationUserVehicleRe
 	return _result, _err
 }
 
-/**
- * Description: 用户车辆资产验证
- * Summary: 用户车辆资产验证
- */
+// Description:
+//
+// Description: 用户车辆资产验证
+//
+// Summary: 用户车辆资产验证
 func (client *Client) VerificationUserVehicleEx(request *VerificationUserVehicleRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *VerificationUserVehicleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16225,10 +17346,11 @@ func (client *Client) VerificationUserVehicleEx(request *VerificationUserVehicle
 	return _result, _err
 }
 
-/**
- * Description: 意愿认证服务端初始化
- * Summary: 意愿认证服务端初始化
- */
+// Description:
+//
+// Description: 意愿认证服务端初始化
+//
+// Summary: 意愿认证服务端初始化
 func (client *Client) InitServerWillauth(request *InitServerWillauthRequest) (_result *InitServerWillauthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16241,10 +17363,11 @@ func (client *Client) InitServerWillauth(request *InitServerWillauthRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 意愿认证服务端初始化
- * Summary: 意愿认证服务端初始化
- */
+// Description:
+//
+// Description: 意愿认证服务端初始化
+//
+// Summary: 意愿认证服务端初始化
 func (client *Client) InitServerWillauthEx(request *InitServerWillauthRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *InitServerWillauthResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -16289,10 +17412,83 @@ func (client *Client) InitServerWillauthEx(request *InitServerWillauthRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣一键绑卡签约
- * Summary: 银行卡代扣一键绑卡签约
- */
+// Description:
+//
+// Description: 意愿认证服务端查询
+//
+// Summary: 意愿认证服务端查询
+func (client *Client) QueryServerWillauth(request *QueryServerWillauthRequest) (_result *QueryServerWillauthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryServerWillauthResponse{}
+	_body, _err := client.QueryServerWillauthEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 意愿认证服务端查询
+//
+// Summary: 意愿认证服务端查询
+func (client *Client) QueryServerWillauthEx(request *QueryServerWillauthRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryServerWillauthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryServerWillauthResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.server.willauth.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 意愿认证服务端材料查询
+//
+// Summary: 意愿认证服务端材料查询
+func (client *Client) QueryServerWillauthmaterial(request *QueryServerWillauthmaterialRequest) (_result *QueryServerWillauthmaterialResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryServerWillauthmaterialResponse{}
+	_body, _err := client.QueryServerWillauthmaterialEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 意愿认证服务端材料查询
+//
+// Summary: 意愿认证服务端材料查询
+func (client *Client) QueryServerWillauthmaterialEx(request *QueryServerWillauthmaterialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryServerWillauthmaterialResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryServerWillauthmaterialResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.server.willauthmaterial.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 银行卡代扣一键绑卡签约
+//
+// Summary: 银行卡代扣一键绑卡签约
 func (client *Client) BindCutpaymentOneclick(request *BindCutpaymentOneclickRequest) (_result *BindCutpaymentOneclickResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16305,10 +17501,11 @@ func (client *Client) BindCutpaymentOneclick(request *BindCutpaymentOneclickRequ
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣一键绑卡签约
- * Summary: 银行卡代扣一键绑卡签约
- */
+// Description:
+//
+// Description: 银行卡代扣一键绑卡签约
+//
+// Summary: 银行卡代扣一键绑卡签约
 func (client *Client) BindCutpaymentOneclickEx(request *BindCutpaymentOneclickRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BindCutpaymentOneclickResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16323,10 +17520,11 @@ func (client *Client) BindCutpaymentOneclickEx(request *BindCutpaymentOneclickRe
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣一键绑卡查询
- * Summary: 银行卡代扣一键绑卡查询
- */
+// Description:
+//
+// Description: 银行卡代扣一键绑卡查询
+//
+// Summary: 银行卡代扣一键绑卡查询
 func (client *Client) QueryCutpaymentOneclick(request *QueryCutpaymentOneclickRequest) (_result *QueryCutpaymentOneclickResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16339,10 +17537,11 @@ func (client *Client) QueryCutpaymentOneclick(request *QueryCutpaymentOneclickRe
 	return _result, _err
 }
 
-/**
- * Description: 银行卡代扣一键绑卡查询
- * Summary: 银行卡代扣一键绑卡查询
- */
+// Description:
+//
+// Description: 银行卡代扣一键绑卡查询
+//
+// Summary: 银行卡代扣一键绑卡查询
 func (client *Client) QueryCutpaymentOneclickEx(request *QueryCutpaymentOneclickRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCutpaymentOneclickResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16357,10 +17556,11 @@ func (client *Client) QueryCutpaymentOneclickEx(request *QueryCutpaymentOneclick
 	return _result, _err
 }
 
-/**
- * Description: 卡状态 y 标回流
- * Summary: 卡状态 y 标回流
- */
+// Description:
+//
+// Description: 卡状态 y 标回流
+//
+// Summary: 卡状态 y 标回流
 func (client *Client) ApplyExtYdata(request *ApplyExtYdataRequest) (_result *ApplyExtYdataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16373,10 +17573,11 @@ func (client *Client) ApplyExtYdata(request *ApplyExtYdataRequest) (_result *App
 	return _result, _err
 }
 
-/**
- * Description: 卡状态 y 标回流
- * Summary: 卡状态 y 标回流
- */
+// Description:
+//
+// Description: 卡状态 y 标回流
+//
+// Summary: 卡状态 y 标回流
 func (client *Client) ApplyExtYdataEx(request *ApplyExtYdataRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ApplyExtYdataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16391,10 +17592,11 @@ func (client *Client) ApplyExtYdataEx(request *ApplyExtYdataRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 个人运营商二次放号专业版
- * Summary: 个人运营商二次放号专业版
- */
+// Description:
+//
+// Description: 个人运营商二次放号专业版
+//
+// Summary: 个人运营商二次放号专业版
 func (client *Client) QueryThreemetaPhonereusepro(request *QueryThreemetaPhonereuseproRequest) (_result *QueryThreemetaPhonereuseproResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16407,10 +17609,11 @@ func (client *Client) QueryThreemetaPhonereusepro(request *QueryThreemetaPhonere
 	return _result, _err
 }
 
-/**
- * Description: 个人运营商二次放号专业版
- * Summary: 个人运营商二次放号专业版
- */
+// Description:
+//
+// Description: 个人运营商二次放号专业版
+//
+// Summary: 个人运营商二次放号专业版
 func (client *Client) QueryThreemetaPhonereuseproEx(request *QueryThreemetaPhonereuseproRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryThreemetaPhonereuseproResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16425,10 +17628,11 @@ func (client *Client) QueryThreemetaPhonereuseproEx(request *QueryThreemetaPhone
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGatewayxFileUploadRequest) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16441,10 +17645,11 @@ func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGa
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUploadEx(request *CreateAntcloudGatewayxFileUploadRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
