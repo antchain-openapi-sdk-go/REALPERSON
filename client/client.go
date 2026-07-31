@@ -12778,6 +12778,248 @@ func (s *VerificationUserVehicleResponse) SetResultMsg(v string) *VerificationUs
 	return s
 }
 
+type QueryThreemetaPhonereuseproxRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 外部请求ID，由调用方自行生成并自行保证唯一，以便问题定位。
+	OuterOrderNo *string `json:"outer_order_no,omitempty" xml:"outer_order_no,omitempty" require:"true"`
+	// 手机号「支持加密」
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
+	// 日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty" require:"true"`
+	// 运营商类型
+	Carrier *string `json:"carrier,omitempty" xml:"carrier,omitempty"`
+	// 加密类型，填写时「支持加密」字段需要对应加密后赋值。默认使用明文模式 0：明文 1：MD5
+	EncryptType *string `json:"encrypt_type,omitempty" xml:"encrypt_type,omitempty"`
+	// 扩展参数
+	ExternParam *string `json:"extern_param,omitempty" xml:"extern_param,omitempty"`
+}
+
+func (s QueryThreemetaPhonereuseproxRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryThreemetaPhonereuseproxRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetAuthToken(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetProductInstanceId(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetOuterOrderNo(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.OuterOrderNo = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetMobile(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetDate(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.Date = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetCarrier(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.Carrier = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetEncryptType(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.EncryptType = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxRequest) SetExternParam(v string) *QueryThreemetaPhonereuseproxRequest {
+	s.ExternParam = &v
+	return s
+}
+
+type QueryThreemetaPhonereuseproxResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 是否二次放号
+	PhoneReuse *string `json:"phone_reuse,omitempty" xml:"phone_reuse,omitempty"`
+	// CHINA_TELECOM：中国电信
+	// CHINA_MOBILE：中国移动
+	// CHINA_UNICOM：中国联通
+	Carrier *string `json:"carrier,omitempty" xml:"carrier,omitempty"`
+	// 扩展参数
+	ExternInfo *string `json:"extern_info,omitempty" xml:"extern_info,omitempty"`
+}
+
+func (s QueryThreemetaPhonereuseproxResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryThreemetaPhonereuseproxResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryThreemetaPhonereuseproxResponse) SetReqMsgId(v string) *QueryThreemetaPhonereuseproxResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxResponse) SetResultCode(v string) *QueryThreemetaPhonereuseproxResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxResponse) SetResultMsg(v string) *QueryThreemetaPhonereuseproxResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxResponse) SetPhoneReuse(v string) *QueryThreemetaPhonereuseproxResponse {
+	s.PhoneReuse = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxResponse) SetCarrier(v string) *QueryThreemetaPhonereuseproxResponse {
+	s.Carrier = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereuseproxResponse) SetExternInfo(v string) *QueryThreemetaPhonereuseproxResponse {
+	s.ExternInfo = &v
+	return s
+}
+
+type QueryThreemetaPhonereusexRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 外部请求ID，由调用方自行生成并自行保证唯一，以便问题定位。
+	OuterOrderNo *string `json:"outer_order_no,omitempty" xml:"outer_order_no,omitempty" require:"true"`
+	// 手机号「支持加密」
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty" require:"true"`
+	// 日期
+	Date *string `json:"date,omitempty" xml:"date,omitempty" require:"true"`
+	// 运营商类型
+	Carrier *string `json:"carrier,omitempty" xml:"carrier,omitempty"`
+	// 加密类型，填写时「支持加密」字段需要对应加密后赋值。默认使用明文模式 0：明文 1：MD5
+	EncryptType *string `json:"encrypt_type,omitempty" xml:"encrypt_type,omitempty"`
+	// 扩展参数
+	ExternParam *string `json:"extern_param,omitempty" xml:"extern_param,omitempty"`
+}
+
+func (s QueryThreemetaPhonereusexRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryThreemetaPhonereusexRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetAuthToken(v string) *QueryThreemetaPhonereusexRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetProductInstanceId(v string) *QueryThreemetaPhonereusexRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetOuterOrderNo(v string) *QueryThreemetaPhonereusexRequest {
+	s.OuterOrderNo = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetMobile(v string) *QueryThreemetaPhonereusexRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetDate(v string) *QueryThreemetaPhonereusexRequest {
+	s.Date = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetCarrier(v string) *QueryThreemetaPhonereusexRequest {
+	s.Carrier = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetEncryptType(v string) *QueryThreemetaPhonereusexRequest {
+	s.EncryptType = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexRequest) SetExternParam(v string) *QueryThreemetaPhonereusexRequest {
+	s.ExternParam = &v
+	return s
+}
+
+type QueryThreemetaPhonereusexResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 是否二次放号
+	PhoneReuse *string `json:"phone_reuse,omitempty" xml:"phone_reuse,omitempty"`
+	// CHINA_TELECOM：中国电信
+	// CHINA_MOBILE：中国移动
+	// CHINA_UNICOM：中国联通
+	Carrier *string `json:"carrier,omitempty" xml:"carrier,omitempty"`
+	// 扩展参数
+	ExternInfo *string `json:"extern_info,omitempty" xml:"extern_info,omitempty"`
+}
+
+func (s QueryThreemetaPhonereusexResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryThreemetaPhonereusexResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryThreemetaPhonereusexResponse) SetReqMsgId(v string) *QueryThreemetaPhonereusexResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexResponse) SetResultCode(v string) *QueryThreemetaPhonereusexResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexResponse) SetResultMsg(v string) *QueryThreemetaPhonereusexResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexResponse) SetPhoneReuse(v string) *QueryThreemetaPhonereusexResponse {
+	s.PhoneReuse = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexResponse) SetCarrier(v string) *QueryThreemetaPhonereusexResponse {
+	s.Carrier = &v
+	return s
+}
+
+func (s *QueryThreemetaPhonereusexResponse) SetExternInfo(v string) *QueryThreemetaPhonereusexResponse {
+	s.ExternInfo = &v
+	return s
+}
+
 type InitServerWillauthRequest struct {
 	// OAuth模式下的授权token
 	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
@@ -14066,7 +14308,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.22.45"),
+				"sdk_version":      tea.String("1.23.2"),
 				"_prod_code":       tea.String("REALPERSON"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -17339,6 +17581,78 @@ func (client *Client) VerificationUserVehicleEx(request *VerificationUserVehicle
 	}
 	_result = &VerificationUserVehicleResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.user.vehicle.verification"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 运营商二次放号增强版扩展接口
+//
+// Summary: 运营商二次放号增强版扩展接口
+func (client *Client) QueryThreemetaPhonereuseprox(request *QueryThreemetaPhonereuseproxRequest) (_result *QueryThreemetaPhonereuseproxResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryThreemetaPhonereuseproxResponse{}
+	_body, _err := client.QueryThreemetaPhonereuseproxEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 运营商二次放号增强版扩展接口
+//
+// Summary: 运营商二次放号增强版扩展接口
+func (client *Client) QueryThreemetaPhonereuseproxEx(request *QueryThreemetaPhonereuseproxRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryThreemetaPhonereuseproxResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryThreemetaPhonereuseproxResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.threemeta.phonereuseprox.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 运营商二次放号扩展接口
+//
+// Summary: 运营商二次放号扩展接口
+func (client *Client) QueryThreemetaPhonereusex(request *QueryThreemetaPhonereusexRequest) (_result *QueryThreemetaPhonereusexResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryThreemetaPhonereusexResponse{}
+	_body, _err := client.QueryThreemetaPhonereusexEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 运营商二次放号扩展接口
+//
+// Summary: 运营商二次放号扩展接口
+func (client *Client) QueryThreemetaPhonereusexEx(request *QueryThreemetaPhonereusexRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryThreemetaPhonereusexResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryThreemetaPhonereusexResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.threemeta.phonereusex.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
