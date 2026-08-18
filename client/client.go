@@ -1736,6 +1736,121 @@ type OcrInfo struct {
 	//
 	// 50027372380230106
 	ChipNum *string `json:"chip_num,omitempty" xml:"chip_num,omitempty"`
+	// 证件类别
+	// example:
+	//
+	// P
+	PassportType *string `json:"passport_type,omitempty" xml:"passport_type,omitempty"`
+	// 姓
+	// example:
+	//
+	// 张
+	Surname *string `json:"surname,omitempty" xml:"surname,omitempty"`
+	// 名
+	// example:
+	//
+	// 三
+	GivenName *string `json:"given_name,omitempty" xml:"given_name,omitempty"`
+	// 护照号码
+	// example:
+	//
+	// L12880801
+	PassportNumber *string `json:"passport_number,omitempty" xml:"passport_number,omitempty"`
+	// 英文姓名
+	// example:
+	//
+	// ZHENGJIAN
+	NameEn *string `json:"name_en,omitempty" xml:"name_en,omitempty"`
+	// 英文出生地
+	// example:
+	//
+	// GUANGDONG
+	BirthPlaceEn *string `json:"birth_place_en,omitempty" xml:"birth_place_en,omitempty"`
+	// 非英文出生地
+	// example:
+	//
+	// 广东
+	BirthPlace *string `json:"birth_place,omitempty" xml:"birth_place,omitempty"`
+	// 国籍
+	// example:
+	//
+	// CHINESE
+	Country *string `json:"country,omitempty" xml:"country,omitempty"`
+	// 出生日期
+	// example:
+	//
+	// 850320
+	BirthDate *string `json:"birth_date,omitempty" xml:"birth_date,omitempty"`
+	// 出生日期（年月日）
+	// example:
+	//
+	// 1985年03月20日
+	BirthDateYmd *string `json:"birth_date_ymd,omitempty" xml:"birth_date_ymd,omitempty"`
+	// 签发日期
+	// example:
+	//
+	// 2019年01月18日
+	IssueDateYmd *string `json:"issue_date_ymd,omitempty" xml:"issue_date_ymd,omitempty"`
+	// 签发地
+	// example:
+	//
+	// GUANGDONG
+	IssuePlaceEn *string `json:"issue_place_en,omitempty" xml:"issue_place_en,omitempty"`
+	// 非英文签发地
+	// example:
+	//
+	// 广东
+	IssuePlace *string `json:"issue_place,omitempty" xml:"issue_place,omitempty"`
+	// 签发机关
+	// example:
+	//
+	// National Immigration Administration, PRC
+	IssueAuthorityEn *string `json:"issue_authority_en,omitempty" xml:"issue_authority_en,omitempty"`
+	// 中华人民共和国国家移民管理局
+	// example:
+	//
+	// 非英文签发机关
+	IssueAuthority *string `json:"issue_authority,omitempty" xml:"issue_authority,omitempty"`
+	// 身份号
+	// example:
+	//
+	// 123
+	IdNumber *string `json:"id_number,omitempty" xml:"id_number,omitempty"`
+	// 机读码一
+	// example:
+	//
+	// POCHNZHENGJIAN
+	MrzLine1 *string `json:"mrz_line1,omitempty" xml:"mrz_line1,omitempty"`
+	// 机读码二
+	// example:
+	//
+	// EF12608921CHN8503208F2901178NGKELMPONBPJB978
+	MrzLine2 *string `json:"mrz_line2,omitempty" xml:"mrz_line2,omitempty"`
+	// 证件类别
+	// example:
+	//
+	// 往来台湾通行证
+	PermitType *string `json:"permit_type,omitempty" xml:"permit_type,omitempty"`
+	// 中文姓名
+	// example:
+	//
+	// 证件样本
+	NameCn *string `json:"name_cn,omitempty" xml:"name_cn,omitempty"`
+	// 有效期限 (yyyy.MM.dd-yyyy.MM.dd)
+	// example:
+	//
+	// 2019.01.18-2029.01.17
+	ValidPeriod *string `json:"valid_period,omitempty" xml:"valid_period,omitempty"`
+	// 证件号码
+	// example:
+	//
+	// H01162111
+	PermitNumber *string `json:"permit_number,omitempty" xml:"permit_number,omitempty"`
+	// 机读码
+	// example:
+	//
+	// CSCA3273201<901178<8108038<2
+	MrzCode *string `json:"mrz_code,omitempty" xml:"mrz_code,omitempty"`
 }
 
 func (s OcrInfo) String() string {
@@ -1968,6 +2083,121 @@ func (s *OcrInfo) SetTractionMass(v string) *OcrInfo {
 
 func (s *OcrInfo) SetChipNum(v string) *OcrInfo {
 	s.ChipNum = &v
+	return s
+}
+
+func (s *OcrInfo) SetPassportType(v string) *OcrInfo {
+	s.PassportType = &v
+	return s
+}
+
+func (s *OcrInfo) SetSurname(v string) *OcrInfo {
+	s.Surname = &v
+	return s
+}
+
+func (s *OcrInfo) SetGivenName(v string) *OcrInfo {
+	s.GivenName = &v
+	return s
+}
+
+func (s *OcrInfo) SetPassportNumber(v string) *OcrInfo {
+	s.PassportNumber = &v
+	return s
+}
+
+func (s *OcrInfo) SetNameEn(v string) *OcrInfo {
+	s.NameEn = &v
+	return s
+}
+
+func (s *OcrInfo) SetBirthPlaceEn(v string) *OcrInfo {
+	s.BirthPlaceEn = &v
+	return s
+}
+
+func (s *OcrInfo) SetBirthPlace(v string) *OcrInfo {
+	s.BirthPlace = &v
+	return s
+}
+
+func (s *OcrInfo) SetCountry(v string) *OcrInfo {
+	s.Country = &v
+	return s
+}
+
+func (s *OcrInfo) SetBirthDate(v string) *OcrInfo {
+	s.BirthDate = &v
+	return s
+}
+
+func (s *OcrInfo) SetBirthDateYmd(v string) *OcrInfo {
+	s.BirthDateYmd = &v
+	return s
+}
+
+func (s *OcrInfo) SetIssueDateYmd(v string) *OcrInfo {
+	s.IssueDateYmd = &v
+	return s
+}
+
+func (s *OcrInfo) SetIssuePlaceEn(v string) *OcrInfo {
+	s.IssuePlaceEn = &v
+	return s
+}
+
+func (s *OcrInfo) SetIssuePlace(v string) *OcrInfo {
+	s.IssuePlace = &v
+	return s
+}
+
+func (s *OcrInfo) SetIssueAuthorityEn(v string) *OcrInfo {
+	s.IssueAuthorityEn = &v
+	return s
+}
+
+func (s *OcrInfo) SetIssueAuthority(v string) *OcrInfo {
+	s.IssueAuthority = &v
+	return s
+}
+
+func (s *OcrInfo) SetIdNumber(v string) *OcrInfo {
+	s.IdNumber = &v
+	return s
+}
+
+func (s *OcrInfo) SetMrzLine1(v string) *OcrInfo {
+	s.MrzLine1 = &v
+	return s
+}
+
+func (s *OcrInfo) SetMrzLine2(v string) *OcrInfo {
+	s.MrzLine2 = &v
+	return s
+}
+
+func (s *OcrInfo) SetPermitType(v string) *OcrInfo {
+	s.PermitType = &v
+	return s
+}
+
+func (s *OcrInfo) SetNameCn(v string) *OcrInfo {
+	s.NameCn = &v
+	return s
+}
+
+func (s *OcrInfo) SetValidPeriod(v string) *OcrInfo {
+	s.ValidPeriod = &v
+	return s
+}
+
+func (s *OcrInfo) SetPermitNumber(v string) *OcrInfo {
+	s.PermitNumber = &v
+	return s
+}
+
+func (s *OcrInfo) SetMrzCode(v string) *OcrInfo {
+	s.MrzCode = &v
 	return s
 }
 
@@ -13025,11 +13255,7 @@ type InitServerWillauthRequest struct {
 	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
 	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
 	// string
-	// 待上传文件
-	FileObject io.Reader `json:"fileObject,omitempty" xml:"fileObject,omitempty"`
-	// 待上传文件名
-	FileObjectName *string `json:"fileObjectName,omitempty" xml:"fileObjectName,omitempty"`
-	FileId         *string `json:"file_id,omitempty" xml:"file_id,omitempty" require:"true"`
+	FileId *string `json:"file_id,omitempty" xml:"file_id,omitempty"`
 	// 场景id
 	SceneId *string `json:"scene_id,omitempty" xml:"scene_id,omitempty" require:"true"`
 	// 身份证姓名
@@ -13073,16 +13299,6 @@ func (s *InitServerWillauthRequest) SetAuthToken(v string) *InitServerWillauthRe
 
 func (s *InitServerWillauthRequest) SetProductInstanceId(v string) *InitServerWillauthRequest {
 	s.ProductInstanceId = &v
-	return s
-}
-
-func (s *InitServerWillauthRequest) SetFileObject(v io.Reader) *InitServerWillauthRequest {
-	s.FileObject = v
-	return s
-}
-
-func (s *InitServerWillauthRequest) SetFileObjectName(v string) *InitServerWillauthRequest {
-	s.FileObjectName = &v
 	return s
 }
 
@@ -14308,7 +14524,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.23.2"),
+				"sdk_version":      tea.String("1.23.4"),
 				"_prod_code":       tea.String("REALPERSON"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -17683,36 +17899,6 @@ func (client *Client) InitServerWillauth(request *InitServerWillauthRequest) (_r
 //
 // Summary: 意愿认证服务端初始化
 func (client *Client) InitServerWillauthEx(request *InitServerWillauthRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *InitServerWillauthResponse, _err error) {
-	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
-		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
-			AuthToken: request.AuthToken,
-			ApiCode:   tea.String("di.realperson.server.willauth.init"),
-			FileName:  request.FileObjectName,
-		}
-		uploadResp, _err := client.CreateAntcloudGatewayxFileUploadEx(uploadReq, headers, runtime)
-		if _err != nil {
-			return _result, _err
-		}
-
-		if !tea.BoolValue(antchainutil.IsSuccess(uploadResp.ResultCode, tea.String("ok"))) {
-			initServerWillauthResponse := &InitServerWillauthResponse{
-				ReqMsgId:   uploadResp.ReqMsgId,
-				ResultCode: uploadResp.ResultCode,
-				ResultMsg:  uploadResp.ResultMsg,
-			}
-			_result = initServerWillauthResponse
-			return _result, _err
-		}
-
-		uploadHeaders := antchainutil.ParseUploadHeaders(uploadResp.UploadHeaders)
-		_err = antchainutil.PutObject(request.FileObject, uploadHeaders, uploadResp.UploadUrl)
-		if _err != nil {
-			return _result, _err
-		}
-		request.FileId = uploadResp.FileId
-		request.FileObject = nil
-	}
-
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err

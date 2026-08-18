@@ -1,4 +1,4 @@
-module github.com/alipay/realperson
+module github.com/antchain-openapi-sdk-go/realperson
 
 go 1.22.1
 
