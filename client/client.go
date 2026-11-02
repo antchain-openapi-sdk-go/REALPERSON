@@ -14524,7 +14524,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.23.4"),
+				"sdk_version":      tea.String("1.23.5"),
 				"_prod_code":       tea.String("REALPERSON"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -15934,9 +15934,9 @@ func (client *Client) ExecFacevrfServermodeEx(request *ExecFacevrfServermodeRequ
 
 // Description:
 //
-// Description: 银行活跃度
+// Description: 个人银行卡状态标准版
 //
-// Summary: 银行活跃度
+// Summary: 个人银行卡状态标准版
 func (client *Client) QueryBankLiveness(request *QueryBankLivenessRequest) (_result *QueryBankLivenessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -15951,9 +15951,9 @@ func (client *Client) QueryBankLiveness(request *QueryBankLivenessRequest) (_res
 
 // Description:
 //
-// Description: 银行活跃度
+// Description: 个人银行卡状态标准版
 //
-// Summary: 银行活跃度
+// Summary: 个人银行卡状态标准版
 func (client *Client) QueryBankLivenessEx(request *QueryBankLivenessRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBankLivenessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16534,9 +16534,9 @@ func (client *Client) QueryEducationBackgroundEx(request *QueryEducationBackgrou
 
 // Description:
 //
-// Description: 个人银行卡状态验证 V4.0
+// Description: 个人银行卡状态基础版
 //
-// Summary: 个人银行卡状态验证 V4.0
+// Summary: 个人银行卡状态基础版
 func (client *Client) QueryBankLivenessfour(request *QueryBankLivenessfourRequest) (_result *QueryBankLivenessfourResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -16551,9 +16551,9 @@ func (client *Client) QueryBankLivenessfour(request *QueryBankLivenessfourReques
 
 // Description:
 //
-// Description: 个人银行卡状态验证 V4.0
+// Description: 个人银行卡状态基础版
 //
-// Summary: 个人银行卡状态验证 V4.0
+// Summary: 个人银行卡状态基础版
 func (client *Client) QueryBankLivenessfourEx(request *QueryBankLivenessfourRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBankLivenessfourResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
