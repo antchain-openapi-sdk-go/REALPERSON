@@ -13250,12 +13250,100 @@ func (s *QueryThreemetaPhonereusexResponse) SetExternInfo(v string) *QueryThreem
 	return s
 }
 
+type QueryCredentialVpRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 签名参数
+	QueryString *string `json:"query_string,omitempty" xml:"query_string,omitempty" require:"true"`
+	// 业务参数
+	BodyJson *string `json:"body_json,omitempty" xml:"body_json,omitempty" require:"true"`
+	// 场景码
+	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty"`
+}
+
+func (s QueryCredentialVpRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCredentialVpRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCredentialVpRequest) SetAuthToken(v string) *QueryCredentialVpRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryCredentialVpRequest) SetProductInstanceId(v string) *QueryCredentialVpRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryCredentialVpRequest) SetQueryString(v string) *QueryCredentialVpRequest {
+	s.QueryString = &v
+	return s
+}
+
+func (s *QueryCredentialVpRequest) SetBodyJson(v string) *QueryCredentialVpRequest {
+	s.BodyJson = &v
+	return s
+}
+
+func (s *QueryCredentialVpRequest) SetSceneCode(v string) *QueryCredentialVpRequest {
+	s.SceneCode = &v
+	return s
+}
+
+type QueryCredentialVpResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 查询结果详情
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s QueryCredentialVpResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCredentialVpResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCredentialVpResponse) SetReqMsgId(v string) *QueryCredentialVpResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryCredentialVpResponse) SetResultCode(v string) *QueryCredentialVpResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryCredentialVpResponse) SetResultMsg(v string) *QueryCredentialVpResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryCredentialVpResponse) SetResult(v string) *QueryCredentialVpResponse {
+	s.Result = &v
+	return s
+}
+
 type InitServerWillauthRequest struct {
 	// OAuth模式下的授权token
 	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
 	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
 	// string
-	FileId *string `json:"file_id,omitempty" xml:"file_id,omitempty"`
+	// 待上传文件
+	FileObject io.Reader `json:"fileObject,omitempty" xml:"fileObject,omitempty"`
+	// 待上传文件名
+	FileObjectName *string `json:"fileObjectName,omitempty" xml:"fileObjectName,omitempty"`
+	FileId         *string `json:"file_id,omitempty" xml:"file_id,omitempty"`
 	// 场景id
 	SceneId *string `json:"scene_id,omitempty" xml:"scene_id,omitempty" require:"true"`
 	// 身份证姓名
@@ -13299,6 +13387,16 @@ func (s *InitServerWillauthRequest) SetAuthToken(v string) *InitServerWillauthRe
 
 func (s *InitServerWillauthRequest) SetProductInstanceId(v string) *InitServerWillauthRequest {
 	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetFileObject(v io.Reader) *InitServerWillauthRequest {
+	s.FileObject = v
+	return s
+}
+
+func (s *InitServerWillauthRequest) SetFileObjectName(v string) *InitServerWillauthRequest {
+	s.FileObjectName = &v
 	return s
 }
 
@@ -14608,7 +14706,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.23.6"),
+				"sdk_version":      tea.String("1.23.7"),
 				"_prod_code":       tea.String("REALPERSON"),
 				"_prod_channel":    tea.String("undefined"),
 			}
@@ -17953,6 +18051,42 @@ func (client *Client) QueryThreemetaPhonereusexEx(request *QueryThreemetaPhonere
 	}
 	_result = &QueryThreemetaPhonereusexResponse{}
 	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.threemeta.phonereusex.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 分布式身份凭证查询VP接口
+//
+// Summary: 分布式身份凭证查询VP接口
+func (client *Client) QueryCredentialVp(request *QueryCredentialVpRequest) (_result *QueryCredentialVpResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryCredentialVpResponse{}
+	_body, _err := client.QueryCredentialVpEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 分布式身份凭证查询VP接口
+//
+// Summary: 分布式身份凭证查询VP接口
+func (client *Client) QueryCredentialVpEx(request *QueryCredentialVpRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCredentialVpResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryCredentialVpResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("di.realperson.credential.vp.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
